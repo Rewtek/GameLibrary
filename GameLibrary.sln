@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{23284014-15A1-43DB-A763-94FA067C3EA6}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\LICENSE.txt = Documentation\LICENSE.txt
+		Documentation\README.txt = Documentation\README.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Main", "Main", "{0FB2B93D-A531-41EE-A238-214A7BEBE72C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{7420962D-D3E0-4028-B84A-EBE1C10F94C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{13D7BF06-E388-49DE-9F46-340FCD0EE0A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rewtek.GameLibrary", "Code\Rewtek.GameLibrary\Rewtek.GameLibrary.csproj", "{0B4AAC62-D1C3-4DEF-B1AD-4440C385044A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rewtek.TestGame", "Code\Rewtek.TestGame\Rewtek.TestGame.csproj", "{EB8731B9-9EAC-4738-88F1-A65B2C648838}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B4AAC62-D1C3-4DEF-B1AD-4440C385044A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B4AAC62-D1C3-4DEF-B1AD-4440C385044A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B4AAC62-D1C3-4DEF-B1AD-4440C385044A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0B4AAC62-D1C3-4DEF-B1AD-4440C385044A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{0B4AAC62-D1C3-4DEF-B1AD-4440C385044A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0B4AAC62-D1C3-4DEF-B1AD-4440C385044A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B4AAC62-D1C3-4DEF-B1AD-4440C385044A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B4AAC62-D1C3-4DEF-B1AD-4440C385044A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{0B4AAC62-D1C3-4DEF-B1AD-4440C385044A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{0B4AAC62-D1C3-4DEF-B1AD-4440C385044A}.Release|x86.ActiveCfg = Release|Any CPU
+		{EB8731B9-9EAC-4738-88F1-A65B2C648838}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{EB8731B9-9EAC-4738-88F1-A65B2C648838}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{EB8731B9-9EAC-4738-88F1-A65B2C648838}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{EB8731B9-9EAC-4738-88F1-A65B2C648838}.Debug|x86.ActiveCfg = Debug|x86
+		{EB8731B9-9EAC-4738-88F1-A65B2C648838}.Debug|x86.Build.0 = Debug|x86
+		{EB8731B9-9EAC-4738-88F1-A65B2C648838}.Release|Any CPU.ActiveCfg = Release|x86
+		{EB8731B9-9EAC-4738-88F1-A65B2C648838}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{EB8731B9-9EAC-4738-88F1-A65B2C648838}.Release|Mixed Platforms.Build.0 = Release|x86
+		{EB8731B9-9EAC-4738-88F1-A65B2C648838}.Release|x86.ActiveCfg = Release|x86
+		{EB8731B9-9EAC-4738-88F1-A65B2C648838}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0B4AAC62-D1C3-4DEF-B1AD-4440C385044A} = {0FB2B93D-A531-41EE-A238-214A7BEBE72C}
+		{EB8731B9-9EAC-4738-88F1-A65B2C648838} = {13D7BF06-E388-49DE-9F46-340FCD0EE0A7}
+	EndGlobalSection
+EndGlobal
