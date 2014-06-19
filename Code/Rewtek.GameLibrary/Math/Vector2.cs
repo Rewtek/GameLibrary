@@ -1,0 +1,470 @@
+﻿#region Copyright
+// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Math\Vector2.cs" company="Xemio Network">
+//      Copyright (c) 2013 Xemio Network (xemio.net)
+//      
+//      Permission is hereby granted, free of charge, to any person obtaining a copy of
+//      this software and associated documentation files (the "Software"), to deal in
+//      the Software without restriction, including without limitation the rights to
+//      use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+//      the Software, and to permit persons to whom the Software is furnished to do so,
+//      subject to the following conditions:
+//      
+//      The above copyright notice and this permission notice shall be included in all
+//      copies or substantial portions of the Software.
+//      
+//      THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//      IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+//      FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+//      COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+//      IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+//      CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+// </copyright>
+// <summary>
+//   Empty
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+#endregion
+
+namespace Rewtek.GameLibrary.Math
+{
+    using System;
+
+    public struct Vector2 : IEquatable<Vector2>
+    {
+        #region Constructors
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Vector2"/> struct.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        public Vector2(float value)
+        {
+            this._x = value;
+            this._y = value;
+        }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Vector2"/> struct.
+        /// </summary>
+        /// <param name="x">The x.</param>
+        /// <param name="y">The y.</param>
+        public Vector2(float x, float y)
+        {
+            this._x = x;
+            this._y = y;
+        }
+        #endregion
+
+        #region Fields
+        private float _x;
+        private float _y;
+        #endregion
+
+        #region Vectors
+        /// <summary>
+        /// Returns a null vector.
+        /// </summary>
+        public static Vector2 Zero
+        {
+            get { return new Vector2(0, 0); }
+        }
+        /// <summary>
+        /// Returns a vector that represents the x-axis.
+        /// </summary>
+        public static Vector2 UnitX
+        {
+            get { return new Vector2(1, 0); }
+        }
+        /// <summary>
+        /// Returns a vector that represents the y-axis.
+        /// </summary>
+        public static Vector2 UnitY
+        {
+            get { return new Vector2(0, 1); }
+        }
+        /// <summary>
+        /// Returns a vector that represents the left direction.
+        /// </summary>
+        public static Vector2 Left
+        {
+            get { return new Vector2(-1, 0); }
+        }
+        /// <summary>
+        /// Returns a vector that represents the right direction.
+        /// </summary>
+        public static Vector2 Right
+        {
+            get { return new Vector2(1, 0); }
+        }
+        /// <summary>
+        /// Returns a vector that represents the up direction.
+        /// </summary>
+        public static Vector2 Up
+        {
+            get { return new Vector2(0, -1); }
+        }
+        /// <summary>
+        /// Returns a vector that represents the down direction.
+        /// </summary>
+        public static Vector2 Down
+        {
+            get { return new Vector2(0, 1); }
+        }
+        
+        #endregion
+
+        #region Coordinates
+        /// <summary>
+        /// Gets or sets the X coordinate.
+        /// </summary>
+        public float X
+        {
+            get { return this._x; }
+            set { this._x = value; }
+        }
+        /// <summary>
+        /// Gets or sets the Y coordinate.
+        /// </summary>
+        public float Y
+        {
+            get { return this._y; }
+            set { this._y = value; }
+        }
+        #endregion
+
+        #region Properties
+        /// <summary>
+        /// Gets the length.
+        /// </summary>
+        public float Length
+        {
+            get { return MathHelper.Sqrt(this.LengthSquared); }
+        }
+        /// <summary>
+        /// Gets the length squared.
+        /// </summary>
+        public float LengthSquared
+        {
+            get { return this._x * this._x + this._y * this._y; }
+        }
+        #endregion
+
+        #region Methods
+        /// <summary>
+        /// Normalizes this vector.
+        /// </summary>
+        public void Normalize()
+        {
+            if (this.LengthSquared > 0)
+            {
+                float divider = 1.0f / this.Length;
+
+                this._x *= divider;
+                this._y *= divider;
+            }
+        }
+        /// <summary>
+        /// Translates the vector.
+        /// </summary>
+        /// <param name="translation">The translation.</param>
+        public void Translate(Vector2 translation)
+        {
+            this._x += translation.X;
+            this._y += translation.Y;
+        }
+        #endregion
+
+        #region Vector Methods
+        /// <summary>
+        /// Truncates the specified vector and removes all decimal places.
+        /// </summary>
+        /// <param name="a">The vector.</param>
+        public static Vector2 Truncate(Vector2 a)
+        {
+            return new Vector2((int)a.X, (int)a.Y);
+        }
+        /// <summary>
+        /// Normalizes the specified vector.
+        /// </summary>
+        /// <param name="a">The vector.</param>
+        public static Vector2 Normalize(Vector2 a)
+        {
+            if (a.LengthSquared == 0)
+                return Vector2.Zero;
+
+            float divider = 1.0f / a.Length;
+            return new Vector2(
+                a.X * divider,
+                a.Y * divider);
+        }
+        /// <summary>
+        /// Returns the absolute values of the specified vector.
+        /// </summary>
+        /// <param name="a">The vector.</param>
+        public static Vector2 Abs(Vector2 a)
+        {
+            return new Vector2(
+                MathHelper.Abs(a.X),
+                MathHelper.Abs(a.Y));
+        }
+        /// <summary>
+        /// Clamps the specified value.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="min">The min.</param>
+        /// <param name="max">The max.</param>
+        /// <returns></returns>
+        public static Vector2 Clamp(Vector2 value, Vector2 min, Vector2 max)
+        {
+            return new Vector2(
+                MathHelper.Clamp(value.X, min.X, max.X),
+                MathHelper.Clamp(value.Y, min.Y, max.Y));
+        }
+        /// <summary>
+        /// Linear interpolation between the two values.
+        /// </summary>
+        /// <param name="a">The first value.</param>
+        /// <param name="b">The second value.</param>
+        /// <param name="amount">The amount.</param>
+        public static Vector2 Lerp(Vector2 a, Vector2 b, float amount)
+        {
+            Vector2 result = Vector2.Zero;
+
+            result.X = MathHelper.Lerp(a.X, b.X, amount);
+            result.Y = MathHelper.Lerp(a.Y, b.Y, amount);
+
+            return result;
+        }
+        /// <summary>
+        /// Rotates the specified vector.
+        /// </summary>
+        /// <param name="vector">The vector.</param>
+        /// <param name="angle">The angle.</param>
+        public static Vector2 Rotate(Vector2 vector, float angle)
+        {
+            float rx = vector.X * MathHelper.Cos(angle) - vector.Y * MathHelper.Sin(angle);
+            float ry = vector.X * MathHelper.Sin(angle) + vector.Y * MathHelper.Cos(angle);
+
+            return new Vector2(rx, ry);
+        }
+        /// <summary>
+        /// Rounds the specified vector.
+        /// </summary>
+        /// <param name="vector">The vector.</param>
+        public static Vector2 Round(Vector2 vector)
+        {
+            vector.X = MathHelper.Round(vector.X);
+            vector.Y = MathHelper.Round(vector.Y);
+
+            return vector;
+        }
+        /// <summary>
+        /// Interpolates between two values using a cubic equation.
+        /// </summary>
+        /// <param name="a">The first value.</param>
+        /// <param name="b">The second value.</param>
+        /// <param name="amount">The amount.</param>
+        public static Vector2 SmoothStep(Vector2 a, Vector2 b, float amount)
+        {
+            Vector2 result = Vector2.Zero;
+
+            result.X = MathHelper.SmoothStep(a.X, b.X, amount);
+            result.Y = MathHelper.SmoothStep(a.Y, b.Y, amount);
+
+            return result;
+        }
+        /// <summary>
+        /// Returns the lesser components of the two values.
+        /// </summary>
+        /// <param name="a">The first value.</param>
+        /// <param name="b">The second value.</param>
+        public static Vector2 Min(Vector2 a, Vector2 b)
+        {
+            return new Vector2(
+                MathHelper.Min(a.X, b.X),
+                MathHelper.Min(a.Y, b.Y));
+        }
+        /// <summary>
+        /// Returns the greater components of the two values.
+        /// </summary>
+        /// <param name="a">The first value.</param>
+        /// <param name="b">The second value.</param>
+        public static Vector2 Max(Vector2 a, Vector2 b)
+        {
+            return new Vector2(
+                MathHelper.Max(a.X, b.X),
+                MathHelper.Max(a.Y, b.Y));
+        }
+        /// <summary>
+        /// Returns the dot product for the specified vectors.
+        /// </summary>
+        /// <param name="a">The first value.</param>
+        /// <param name="b">The second value.</param>
+        /// <returns></returns>
+        public static float Dot(Vector2 a, Vector2 b)
+        {
+            return a.X * b.X + a.Y * b.Y;
+        }
+        /// <summary>
+        /// Reflects the specified vector.
+        /// </summary>
+        /// <param name="vector">The vector.</param>
+        /// <param name="normal">The normal.</param>
+        public static Vector2 Reflect(Vector2 vector, Vector2 normal)
+        {
+            Vector2 result = Vector2.Zero;
+            float sub = 2 * Vector2.Dot(vector, normal);
+
+            result.X = vector.X - sub * normal.X;
+            result.Y = vector.Y - sub * normal.Y;
+
+            return result;
+        }
+        /// <summary>
+        /// Negates the specified vector.
+        /// </summary>
+        /// <param name="vector">The vector.</param>
+        public static Vector2 Negate(Vector2 vector)
+        {
+            return new Vector2(-vector.X, -vector.Y);
+        }
+        #endregion
+
+        #region Object Member
+
+        /// <summary>
+        /// Indicates whether this instance and a specified object are equal.
+        /// </summary>
+        /// <returns>
+        /// true if <paramref name="obj"/> and this instance are the same type and represent the same value; otherwise, false.
+        /// </returns>
+        /// <param name="obj">Another object to compare to. </param>
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) 
+                return false;
+
+            return obj is Vector2 && this.Equals((Vector2)obj);
+        }
+
+        /// <summary>
+        /// Returns the hash code for this instance.
+        /// </summary>
+        /// <returns>
+        /// A 32-bit signed integer that is the hash code for this instance.
+        /// </returns>
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return (this._x.GetHashCode() * 397) ^ this._y.GetHashCode();
+            }
+        }
+
+        /// <summary>
+        /// Indicates whether the current object is equal to another object of the same type.
+        /// </summary>
+        /// <returns>
+        /// true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+        /// </returns>
+        /// <param name="other">An object to compare with this object.</param>
+        public bool Equals(Vector2 other)
+        {
+            return this._x.Equals(other._x) && this._y.Equals(other._y);
+        }
+
+        /// <summary>
+        /// Returns a <see cref="System.String"/> that represents this instance.
+        /// </summary>
+        public override string ToString()
+        {
+            return "{ " + X + ", " + Y + " }";
+        }
+
+        #endregion
+
+        #region Operators
+
+        /// <summary>
+        /// Implements the operator ==.
+        /// </summary>
+        /// <param name="a">The first vector.</param>
+        /// <param name="b">The second vector.</param>
+        public static bool operator ==(Vector2 a, Vector2 b)
+        {
+            return (a.X == b.X) && (a.Y == b.Y);
+        }
+        /// <summary>
+        /// Implements the operator !=.
+        /// </summary>
+        /// <param name="a">The first vector.</param>
+        /// <param name="b">The second vector.</param>
+        public static bool operator !=(Vector2 a, Vector2 b)
+        {
+            return (a.X != b.X) || (a.Y != b.Y);
+        }
+        /// <summary>
+        /// Implements the operator +.
+        /// </summary>
+        /// <param name="a">The first vector.</param>
+        /// <param name="b">The second vector.</param>
+        public static Vector2 operator +(Vector2 a, Vector2 b)
+        {
+            return new Vector2(a.X + b.X, a.Y + b.Y);
+        }
+        /// <summary>
+        /// Implements the operator -.
+        /// </summary>
+        /// <param name="a">The first vector.</param>
+        /// <param name="b">The second vector.</param>
+        public static Vector2 operator -(Vector2 a, Vector2 b)
+        {
+            return new Vector2(a.X - b.X, a.Y - b.Y);
+        }
+        /// <summary>
+        /// Implements the operator -.
+        /// </summary>
+        /// <param name="a">The vector.</param>
+        public static Vector2 operator -(Vector2 a)
+        {
+            return new Vector2(-a.X, -a.Y);
+        }
+        /// <summary>
+        /// Implements the operator *.
+        /// </summary>
+        /// <param name="a">The first vector.</param>
+        /// <param name="b">The second vector.</param>
+        public static Vector2 operator *(Vector2 a, Vector2 b)
+        {
+            return new Vector2(a.X * b.X, a.Y * b.Y);
+        }
+        /// <summary>
+        /// Implements the operator *.
+        /// </summary>
+        /// <param name="a">The vector.</param>
+        /// <param name="scale">The scale.</param>
+        public static Vector2 operator *(Vector2 a, float scale)
+        {
+            return new Vector2(a.X * scale, a.Y * scale);
+        }
+        /// <summary>
+        /// Implements the operator /.
+        /// </summary>
+        /// <param name="a">The first vector.</param>
+        /// <param name="b">The second vector.</param>
+        public static Vector2 operator /(Vector2 a, Vector2 b)
+        {
+            return new Vector2(a.X / b.X, a.Y / b.Y);
+        }
+        /// <summary>
+        /// Implements the operator /.
+        /// </summary>
+        /// <param name="a">The vector.</param>
+        /// <param name="scale">The scale.</param>
+        public static Vector2 operator /(Vector2 a, float scale)
+        {
+            return new Vector2(a.X / scale, a.Y / scale);
+        }
+
+        #endregion
+    }
+}

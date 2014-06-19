@@ -39,8 +39,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Environment\Entities\AnimatedEntity.cs" />
+    <Compile Include="Environment\Entities\Entity.cs" />
     <Compile Include="Global.cs" />
+    <Compile Include="Logging\Logger.cs" />
+    <Compile Include="Logging\LogLevel.cs" />
+    <Compile Include="Math\MathHelper.cs" />
+    <Compile Include="Math\Rectangle.cs" />
+    <Compile Include="Math\Vector2.cs" />
+    <Compile Include="Math\Vector3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rendering\Sprites\Animation.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\Extensions\" />
+    <Folder Include="Components\" />
+    <Folder Include="Config\" />
+    <Folder Include="Content\" />
+    <Folder Include="Events\" />
+    <Folder Include="Game\" />
+    <Folder Include="Input\" />
+    <Folder Include="Localization\" />
+    <Folder Include="Network\" />
+    <Folder Include="Rendering\Effects\" />
+    <Folder Include="Rendering\Font\" />
+    <Folder Include="Rendering\Geometry\" />
+    <Folder Include="Rendering\Scenes\" />
+    <Folder Include="Rendering\Surfaces\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Scripts\" />
+    <Folder Include="Serialization\" />
+    <Folder Include="UI\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
