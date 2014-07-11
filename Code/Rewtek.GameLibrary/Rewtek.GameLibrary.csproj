@@ -41,6 +41,12 @@
   <ItemGroup>
     <Compile Include="Environment\Entities\AnimatedEntity.cs" />
     <Compile Include="Environment\Entities\Entity.cs" />
+    <Compile Include="Environment\Items\Backpack.cs" />
+    <Compile Include="Environment\Items\Item.cs" />
+    <Compile Include="Environment\Missions\Mission.cs" />
+    <Compile Include="Environment\Missions\MissionState.cs" />
+    <Compile Include="Environment\Missions\Objective.cs" />
+    <Compile Include="Environment\Missions\ObjectiveChangedEventArgs.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="Logging\Logger.cs" />
     <Compile Include="Logging\LogLevel.cs" />
