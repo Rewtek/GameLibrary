@@ -1,6 +1,5 @@
 ﻿namespace Rewtek.GameLibrary.Environment.Items
 {
-<<<<<<< HEAD
     using System;
     using System.Linq;
     using System.Collections.Generic;
@@ -25,6 +24,10 @@
         public int Power { get; set; }
 
         // Constructor
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Rewtek.GameLibrary.Environment.Items.Item"/> class.
+        /// <param name="name">The item name.</param>
+        /// </summary>
         public Item(ItemType type)
             : this(type, "Item")
         {
@@ -40,32 +43,8 @@
 
             Logger.Log(LogLevel.Debug, "New item ({0}-{1}) created", Code, Name);
         }
-=======
-    #region Using directives
-
-    using global::System;
-    using global::System.Linq;
-    using global::System.Collections.Generic;
-
-    #endregion
-
-    public class Item
-    {
-        // Properties
-        public string Name { get; set; }
-
-        // Constructor
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Rewtek.GameLibrary.Environment.Items.Item"/> class.
-        /// <param name="name">The item name.</param>
-        /// </summary>
-        public Item(string name)
-        {
-            Name = name;
-        }
 
         // Methods
-
         #region Override Methods
 
         public override int GetHashCode()
@@ -79,6 +58,5 @@
         }
 
         #endregion
->>>>>>> 84174fdc819ec6fa546a113fd97bb7c0e6514859
     }
 }
