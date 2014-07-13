@@ -116,10 +116,9 @@
                         break;
                 }
 
-                Console.Write("[{0}, {1}]> ", DateTime.Now.ToShortTimeString(), logEvent);
-
-                Console.ForegroundColor = ConsoleColor.White;
+                //Console.Write("[{0}, {1}]> ", DateTime.Now.ToShortTimeString(), logEvent);
                 Console.WriteLine(value);
+                Console.ForegroundColor = ConsoleColor.Gray;
             }
         }
 

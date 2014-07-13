@@ -1,4 +1,4 @@
-﻿namespace Rewtek.GameLibrary.Logging
+﻿namespace Rewtek.GameLibrary
 {
     public enum LogEvent
     {
