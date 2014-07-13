@@ -1,8 +1,8 @@
 <VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
   <TemplateData>
-    <DefaultName>Class.cs</DefaultName>
-    <Name>Class</Name>
-    <Description>RewTek basic class template.</Description>
+    <DefaultName>Component.cs</DefaultName>
+    <Name>Component Class</Name>
+    <Description>Rewtek component class template.</Description>
     <ProjectType>CSharp</ProjectType>
     <SortOrder>10</SortOrder>
     <Icon>__TemplateIcon.ico</Icon>

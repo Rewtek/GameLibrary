@@ -33,17 +33,42 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Alphabet.cs" />
+    <Compile Include="Common\Extensions\EnumExtension.cs" />
+    <Compile Include="Common\MemoryManager.cs" />
+    <Compile Include="Common\MessageBox.cs" />
+    <Compile Include="Common\MessageBoxIcon.cs" />
+    <Compile Include="Common\Messages.cs" />
+    <Compile Include="Common\Reflector.cs" />
+    <Compile Include="Common\ResourceSystem.cs" />
+    <Compile Include="Common\SystemHelper.cs" />
+    <Compile Include="Components\Component.cs" />
+    <Compile Include="Components\ComponentManager.cs" />
+    <Compile Include="Components\IComponent.cs" />
+    <Compile Include="Components\MissingComponentException.cs" />
+    <Compile Include="Components\RuffyComponent.cs" />
+    <Compile Include="Components\TestComponent.cs" />
     <Compile Include="Environment\Entities\AnimatedEntity.cs" />
     <Compile Include="Environment\Entities\Entity.cs" />
+    <Compile Include="Environment\Items\Item.cs" />
+    <Compile Include="Environment\Items\ItemLabel.cs" />
+    <Compile Include="Environment\Items\ItemManager.cs" />
+    <Compile Include="Environment\Items\ItemType.cs" />
     <Compile Include="Global.cs" />
+    <Compile Include="Logging\FileLogger.cs" />
+    <Compile Include="Logging\ILogger.cs" />
+    <Compile Include="Logging\LogEvent.cs" />
     <Compile Include="Logging\Logger.cs" />
+    <Compile Include="Logging\LoggerType.cs" />
     <Compile Include="Logging\LogLevel.cs" />
+    <Compile Include="Math\ITransforamable.cs" />
     <Compile Include="Math\MathHelper.cs" />
     <Compile Include="Math\Rectangle.cs" />
     <Compile Include="Math\Vector2.cs" />
@@ -52,8 +77,6 @@
     <Compile Include="Rendering\Sprites\Animation.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Common\Extensions\" />
-    <Folder Include="Components\" />
     <Folder Include="Config\" />
     <Folder Include="Content\" />
     <Folder Include="Events\" />

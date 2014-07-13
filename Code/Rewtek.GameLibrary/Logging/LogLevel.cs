@@ -1,7 +1,9 @@
-﻿namespace Rewtek.GameLibrary.Logging
+﻿namespace Rewtek.GameLibrary
 {
+    [System.Flags]
     public enum LogLevel
     {
-        All
+        Always,
+        Debug
     }
 }

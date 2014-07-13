@@ -30,7 +30,7 @@
             }
             else
             {
-                Logger.Debug("Entity already contains this animation ({0})", animation.Name);
+                Logger.Log(LogLevel.Debug, "Entity already contains this animation ({0})", animation.Name);
             }
         }
 

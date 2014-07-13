@@ -31,21 +31,41 @@ namespace $rootnamespace$
 	using global::System;
 	using global::System.Linq;
 	using global::System.Collections.Generic;
-
+	
+	using Rewtek.GameLibrary.Components;
+	
     #endregion
 
-    public class $safeitemrootname$
+    public class $safeitemrootname$ : IComponent
     {
         // Variables
-
+		private bool _initialized;
+		
         // Properties
 
         // Constructor
+		/// <summary>
+        /// Initializes a new instance of the <see cref="$rootnamespace$.$safeitemrootname$"/> class.
+        /// </summary>
         public $safeitemrootname$()
         {
             
         }
+		
+		// Destructor
+        ~$safeitemrootname$()
+        {
+            Logger.Log(Messages.COMPONENT_DESTROYING, GetType().Name);
+        }
 
         // Methods
+		public void Initialize()
+		{
+			if (_initialized) return;
+			
+			Logger.Log(Messages.COMPONENT_INITIALIZING, GetType().Name);
+			
+			_initialized = true;
+		}
     }
 }
