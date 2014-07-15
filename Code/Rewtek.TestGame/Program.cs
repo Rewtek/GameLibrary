@@ -20,18 +20,25 @@
             Console.Title = "Rewtek Test Game";
 
             Console.WriteLine("Rewtek Game Library [Version: {0}, Build: {1}]", Core.Version, Core.BuildDate);
-            Console.WriteLine("Copyright (c) Rewtek Network. All rights reserved.");
+            Console.WriteLine("Copyright (c) 2014 Rewtek Network. All rights reserved.");
             Console.WriteLine();
 
             Core.Initialize();
 
-            ResourceSystem.CheckFile("Data\\ItemList.xml");
+            //ResourceSystem.CheckFile("Data\\ItemList.xml");
 
             Core.Components.Install(new ItemManager());
             Core.Components.Install(new TestComponent());
             Core.Components.Install(new RuffyComponent());
-
-            Core.Run();
+            Core.Components.Install(new AchievementManager());
+            
+            var manager = Core.Components.Require<AchievementManager>();
+            manager.Add(new Achievement("ACHV_TEST"));
+            manager.Add(new Achievement("ACHV_RUFFY"));
+            
+            manager.Unlock("ACHV_TEST");
+            
+            //Core.Run();
 
             Console.ReadLine();
         }
