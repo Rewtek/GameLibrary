@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Achivements\Achievement.cs" />
+    <Compile Include="Achivements\AchievementManager.cs" />
     <Compile Include="Common\Alphabet.cs" />
     <Compile Include="Common\Extensions\EnumExtension.cs" />
     <Compile Include="Common\Extensions\EventHandlerExtensions.cs" />
