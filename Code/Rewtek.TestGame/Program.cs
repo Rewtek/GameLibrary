@@ -5,6 +5,7 @@
     using System.Collections.Generic;
 
     using Rewtek.GameLibrary;
+    using Rewtek.GameLibrary.Achivements;
     using Rewtek.GameLibrary.Components;
     using Rewtek.GameLibrary.Environment;
     using Rewtek.GameLibrary.Environment.Entities;

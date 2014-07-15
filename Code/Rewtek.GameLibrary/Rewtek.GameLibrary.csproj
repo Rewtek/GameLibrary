@@ -40,8 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Achivements\Achievement.cs" />
-    <Compile Include="Achivements\AchievementManager.cs" />
+    <Compile Include="Achievements\Achievement.cs" />
+    <Compile Include="Achievements\AchievementManager.cs" />
     <Compile Include="Common\Alphabet.cs" />
     <Compile Include="Common\Extensions\EnumExtension.cs" />
     <Compile Include="Common\Extensions\EventHandlerExtensions.cs" />
@@ -60,7 +60,7 @@
     <Compile Include="Components\TestComponent.cs" />
     <Compile Include="Environment\Entities\AnimatedEntity.cs" />
     <Compile Include="Environment\Entities\Entity.cs" />
-	<Compile Include="Environment\Items\Backpack.cs" />
+    <Compile Include="Environment\Items\Backpack.cs" />
     <Compile Include="Environment\Items\Item.cs" />
     <Compile Include="Environment\Items\ItemLabel.cs" />
     <Compile Include="Environment\Items\ItemManager.cs" />
@@ -99,7 +99,6 @@
     <Folder Include="Game\" />
     <Folder Include="Input\" />
     <Folder Include="Localization\" />
-    <Folder Include="Network\" />
     <Folder Include="Rendering\Effects\" />
     <Folder Include="Rendering\Font\" />
     <Folder Include="Rendering\Geometry\" />
