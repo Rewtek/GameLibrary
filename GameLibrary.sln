@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rewtek.GameLibrary", "Code\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rewtek.TestGame", "Code\Rewtek.TestGame\Rewtek.TestGame.csproj", "{EB8731B9-9EAC-4738-88F1-A65B2C648838}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rewtek.IntegrityGen", "Code\Rewtek.FileIntegrityMaker\Rewtek.IntegrityGen.csproj", "{2A6F8484-079E-42C3-B4D7-B3818FC1FC3F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rewtek.IntegrityGen", "Code\Rewtek.IntegrityGen\Rewtek.IntegrityGen.csproj", "{2A6F8484-079E-42C3-B4D7-B3818FC1FC3F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

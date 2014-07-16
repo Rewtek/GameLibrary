@@ -79,12 +79,16 @@
 
             if (header.Tag != FILE_TAG)
             {
-                Console.WriteLine("File Format Missmatch" + FILE_NAME); ;
+                Console.WriteLine("File Format Missmatch" + FILE_NAME);
+                Console.WriteLine("Press any key to exit ...");
+                Console.ReadLine();
                 return;
             }
             else if (header.Version != FILE_VERSION)
             {
                 Console.WriteLine("File Version Missmatch - " + FILE_NAME);
+                Console.WriteLine("Press any key to exit ...");
+                Console.ReadLine();
                 return;
             }
             else
