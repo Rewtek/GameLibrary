@@ -8,8 +8,8 @@
     <ProjectGuid>{EB8731B9-9EAC-4738-88F1-A65B2C648838}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Rewtek.TestGame</RootNamespace>
-    <AssemblyName>Rewtek.TestGame</AssemblyName>
+    <RootNamespace>Rewtek.Testing.Game</RootNamespace>
+    <AssemblyName>Rewtek.Testing.Game</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\Test\Debug\</OutputPath>
+    <OutputPath>..\..\Testing\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -27,7 +27,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\Test\Release\</OutputPath>
+    <OutputPath>..\..\Testing\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>

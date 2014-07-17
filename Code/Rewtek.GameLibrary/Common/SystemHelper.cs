@@ -29,6 +29,7 @@ namespace Rewtek.GameLibrary.Common
     #region Using directives
 
     using global::System;
+    using global::System.Threading;
 
     #endregion
 
@@ -82,6 +83,22 @@ namespace Rewtek.GameLibrary.Common
         public static PlatformID Platform 
         { 
             get { return Environment.OSVersion.Platform; } 
+        }
+
+        /// <summary>
+        /// Gets the current culture name.
+        /// </summary>
+        public static string CultureName 
+        {
+            get { return Thread.CurrentThread.CurrentUICulture.Name; }
+        }
+
+        /// <summary>
+        /// Gets the current native culture name.
+        /// </summary>
+        public static string CultureNativeName
+        {
+            get { return Thread.CurrentThread.CurrentUICulture.NativeName.Split(' ')[0]; }
         }
     }
 }

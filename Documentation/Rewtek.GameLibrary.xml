@@ -1,0 +1,1755 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rewtek.GameLibrary</name>
+    </assembly>
+    <members>
+        <member name="M:Rewtek.GameLibrary.Reflector.GetCaller">
+            <summary>
+            Returns a <see cref="T:System.String"/> that contains the caller class and method name.
+            </summary>
+            <returns>A <see cref="T:System.String"/>, containing the caller class and method name.</returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Reflector.GetCallerInfo">
+            <summary>
+            Returns a <see cref="!:Rewtek.GameLibrary.Common.CallerInfo"/> that contains the caller information.
+            </summary>
+            <returns>A  <see cref="!:Rewtek.GameLibrary.Common.CallerInfo"/>, containing the caller information.</returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.PacketHandler.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rewtek.GameLibrary.Network.PacketHandler"/> class.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.PacketHandler.AddPacket(System.Int32,Rewtek.GameLibrary.Network.OnPacket)">
+            <summary>
+            Adds a packet to the <see cref="T:Rewtek.GameLibrary.Network.PacketHandler"/>.
+            </summary>
+            <param name="header">The header of the packet.</param>
+            <param name="packet">The packet.</param>
+            <returns>True if the packet has been added. Otherwise, false.</returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.PacketHandler.RemovePacket(System.Int32)">
+            <summary>
+            Removes a packet from the <see cref="T:Rewtek.GameLibrary.Network.PacketHandler"/>.
+            </summary>
+            <param name="header">The header of the packet.</param>
+            <returns>True if the packet has been removed. Otherwise, false.</returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.PacketHandler.InvokePacket(Rewtek.GameLibrary.Network.NetworkClient,Rewtek.GameLibrary.Network.Packet)">
+            <summary>
+            Invokes a <see cref="T:Rewtek.GameLibrary.Network.Packet"/>.
+            </summary>
+            <param name="client">The <see cref="T:Rewtek.GameLibrary.Network.NetworkClient"/>.</param>
+            <param name="packet">The <see cref="T:Rewtek.GameLibrary.Network.Packet"/>.</param>
+            <returns>True if the packet has been invoked.</returns>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Network.PacketHandler.PacketCount">
+            <summary>
+            Gets count of all registered packets.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Environment.Items.Item.#ctor(Rewtek.GameLibrary.Environment.Items.ItemType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rewtek.GameLibrary.Environment.Items.Item"/> class.
+            <param name="name">The item name.</param>
+            </summary>
+        </member>
+        <member name="T:Rewtek.GameLibrary.ResourceSystem">
+            <summary>
+            Implementation of the default resource and file system.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.ResourceSystem.#cctor">
+            <summary>
+            Initializes the <see cref="!:Rewtek.GameLibrary.Common.ResourceSystem"/> class.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.ResourceSystem.Initialize">
+            <summary>
+            Initializes the <see cref="!:Rewtek.GameLibrary.Common.ResourceSystem"/>.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.ResourceSystem.CreateDirectory(System.String)">
+            <summary>
+            Creates all directories and subdirectories as specified by path.
+            </summary>
+            <param name="path">The directory to create.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.ResourceSystem.CreateDirectory(System.String,System.Security.AccessControl.DirectorySecurity)">
+            <summary>
+            Creates all the directories in the specified path, applying the specified Windows security.
+            </summary>
+            <param name="path">The directory to create.</param>
+            <param name="directorySecurity">The access control to apply to the directory.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.ResourceSystem.DeleteDirectory(System.String)">
+            <summary>
+            Deletes an empty directory from a specified path.
+            </summary>
+            <param name="path">The name of the directory to remove.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.ResourceSystem.DeleteDirectory(System.String,System.Boolean)">
+            <summary>
+            Deletes an empty directory and, if indicated, any subdirectories and files in the directory.
+            </summary>
+            <param name="path">The name of the directory to remove.</param>
+            <param name="recursive">true to remove directories, subdirectories, and files in path; otherwise, false.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.ResourceSystem.ExistsDirectory(System.String)">
+            <summary>
+            Determines whether the given path refers to an existing directory on disk.
+            </summary>
+            <param name="path">The path to test.</param>
+            <returns>true if path refers to an existing directory; otherwise, false.</returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.ResourceSystem.CheckDirectory(System.String)">
+            <summary>
+            Determines whether the given path refers to an existing directory on disk and throws an error message if not.
+            </summary>
+            <param name="path">The path to test.</param>
+            <returns>true if path refers to an existing directory; otherwise, false.</returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.ResourceSystem.ExistsFile(System.String)">
+            <summary>
+            Determines whether the given file refers to an existing file on disk.
+            </summary>
+            <param name="path">The file to test.</param>
+            <returns>true if path refers to an existing file; otherwise, false.</returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.ResourceSystem.CheckFile(System.String)">
+            <summary>
+            Determines whether the file path refers to an existing file on disk and throws an error message if not.
+            </summary>
+            <param name="path">The file to test.</param>
+            <returns>true if path refers to an existing file; otherwise, false.</returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.ResourceSystem.GetFullPath(System.String)">
+            <summary>
+            Gets the full path.
+            </summary>
+            <param name="part">The part.</param>
+        </member>
+        <member name="P:Rewtek.GameLibrary.ResourceSystem.BasePath">
+            <summary>
+            Gets the base path.
+            </summary>
+        </member>
+        <member name="T:MsgBoxIcon">
+            <summary>
+            Specifies constants defining which information to display.
+            </summary>
+        </member>
+        <member name="F:MsgBoxIcon.None">
+            <summary>
+            The message box contain no symbols.
+            </summary>
+        </member>
+        <member name="F:MsgBoxIcon.Error">
+            <summary>
+            The message box contains a symbol consisting of white X in a circle with
+            a red background.
+            </summary>
+        </member>
+        <member name="F:MsgBoxIcon.Warning">
+            <summary>
+            The message box contains a symbol consisting of an exclamation point in a
+            triangle with a yellow background.
+            </summary>
+        </member>
+        <member name="F:MsgBoxIcon.Information">
+            <summary>
+            The message box contains a symbol consisting of a lowercase letter i in a
+            circle.
+            </summary>
+        </member>
+        <member name="F:MsgBoxIcon.Question">
+            <summary>
+            The message box contains a symbol consisting of a question mark in a circle.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Environment.Items.ItemManager.Dispose">
+            <summary>
+            Disposes the object.
+            </summary>
+        </member>
+        <member name="F:Rewtek.GameLibrary.Math.MathHelper.E">
+            <summary>
+            Natural base for logarithms.
+            </summary>
+        </member>
+        <member name="F:Rewtek.GameLibrary.Math.MathHelper.Log10E">
+            <summary>
+            Natural base for logarithms.
+            </summary>
+        </member>
+        <member name="F:Rewtek.GameLibrary.Math.MathHelper.Log2E">
+            <summary>
+            Natural base for logarithms.
+            </summary>
+        </member>
+        <member name="F:Rewtek.GameLibrary.Math.MathHelper.Pi">
+            <summary>
+            π
+            </summary>
+        </member>
+        <member name="F:Rewtek.GameLibrary.Math.MathHelper.PiOver2">
+            <summary>
+            π divided by 2.
+            </summary>
+        </member>
+        <member name="F:Rewtek.GameLibrary.Math.MathHelper.PiOver4">
+            <summary>
+            π divided by 4.
+            </summary>
+        </member>
+        <member name="F:Rewtek.GameLibrary.Math.MathHelper.TwoPi">
+            <summary>
+            Two times π.
+            </summary>
+        </member>
+        <member name="F:Rewtek.GameLibrary.Math.MathHelper.OneEightyOverPi">
+            <summary>
+            180 divided by π.
+            </summary>
+        </member>
+        <member name="F:Rewtek.GameLibrary.Math.MathHelper.PiOverOneEighty">
+            <summary>
+            π divided by 180.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.MathHelper.Sin(System.Single)">
+            <summary>
+            Returns the sinus for the specified value.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.MathHelper.Cos(System.Single)">
+            <summary>
+            Returns the cosinus for the specified value.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.MathHelper.Sqrt(System.Single)">
+            <summary>
+            Returns the square root for the specified value.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.MathHelper.Round(System.Single)">
+            <summary>
+            Rounds the specified value.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.MathHelper.ToAngle(System.Single,System.Single)">
+            <summary>
+            Calculates an angle out of given coordinates.
+            </summary>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.MathHelper.ToAngle(Rewtek.GameLibrary.Math.Vector2)">
+            <summary>
+            Calculates an angle out of given coordinates.
+            </summary>
+            <param name="vector">The vector.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.MathHelper.ToVector(System.Single)">
+            <summary>
+            Converts an angle to a direction vector.
+            </summary>
+            <param name="angle">The angle.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.MathHelper.Barycentric(System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Returns the Cartesian coordinate for one axis of a point that is defined by a given triangle and two normalized barycentric (areal) coordinates.
+            </summary>
+            <param name="value1">The value1.</param>
+            <param name="value2">The value2.</param>
+            <param name="value3">The value3.</param>
+            <param name="amount1">The amount1.</param>
+            <param name="amount2">The amount2.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.MathHelper.CatmullRom(System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Performs a Catmull-Rom interpolation using the specified positions.
+            </summary>
+            <param name="value1">The value1.</param>
+            <param name="value2">The value2.</param>
+            <param name="value3">The value3.</param>
+            <param name="value4">The value4.</param>
+            <param name="amount">The amount.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.MathHelper.Clamp(System.Single,System.Single,System.Single)">
+            <summary>
+            Restricts a value to be within a specified range.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="min">The minimum.</param>
+            <param name="max">The maximum.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.MathHelper.Distance(System.Single,System.Single)">
+            <summary>
+            Calculates the absolute value of the difference of two values.
+            </summary>
+            <param name="value1">The value1.</param>
+            <param name="value2">The value2.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.MathHelper.Hermite(System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Performs a Hermite spline interpolation.
+            </summary>
+            <param name="value1">The value1.</param>
+            <param name="tangent1">The tangent1.</param>
+            <param name="value2">The value2.</param>
+            <param name="tangent2">The tangent2.</param>
+            <param name="amount">The amount.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.MathHelper.Lerp(System.Single,System.Single,System.Single)">
+            <summary>
+            Linearly interpolates between two values.
+            </summary>
+            <param name="value1">The value1.</param>
+            <param name="value2">The value2.</param>
+            <param name="amount">The amount.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.MathHelper.Abs(System.Single)">
+            <summary>
+            Returns the absolute value.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.MathHelper.Max(System.Single,System.Single)">
+            <summary>
+            Returns the greater of two values.
+            </summary>
+            <param name="value1">The value1.</param>
+            <param name="value2">The value2.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.MathHelper.Min(System.Single,System.Single)">
+            <summary>
+            Returns the lesser of two values.
+            </summary>
+            <param name="value1">The value1.</param>
+            <param name="value2">The value2.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.MathHelper.SmoothStep(System.Single,System.Single,System.Single)">
+            <summary>
+            Interpolates between two values using a cubic equation.
+            </summary>
+            <param name="value1">The value1.</param>
+            <param name="value2">The value2.</param>
+            <param name="amount">The amount.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.MathHelper.ToDegrees(System.Single)">
+            <summary>
+            Converts radians to degrees.
+            </summary>
+            <param name="radians">The radians.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.MathHelper.ToRadians(System.Single)">
+            <summary>
+            Converts degrees to radians.
+            </summary>
+            <param name="degrees">The degrees.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.MathHelper.WrapAngle(System.Single)">
+            <summary>
+            Reduces a given angle to a value between π and -π.
+            </summary>
+            <param name="angle">The angle.</param>
+        </member>
+        <member name="T:Rewtek.GameLibrary.Logger">
+            <summary>
+            Provides a global logger instance.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Logger.#cctor">
+            <summary>
+            Initializes the <see cref="!:Rewtek.GameLibrary.Loggin.Logger"/> class.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Logger.LogToFile">
+            <summary>
+            Gets or sets a value indicating whether the default log should be logged into a file.
+            </summary>
+        </member>
+        <member name="T:Rewtek.GameLibrary.Components.Component">
+            <summary>
+            Provides the base class for a component.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Components.Component.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rewtek.GameLibrary.Components.Component"/> class.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Components.Component.Initialize">
+            <summary>
+            Initializes the component.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Components.Component.Dispose">
+            <summary>
+            Disposes the object.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Components.Component.Dispose(System.Boolean)">
+            <summary>
+            Disposes the object.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Common.MemoryManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rewtek.GameLibrary.Common.MemoryManager"/> class.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Common.MemoryManager.StartMemoryChecker">
+            <summary>
+            Starts the Memory Manager.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Common.MemoryManager.StopMemoryChecker">
+            <summary>
+            Stops the Memory Manager.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Common.MemoryManager.Dispose">
+            <summary>
+            Disposes the object.
+            </summary>
+        </member>
+        <member name="T:Rewtek.GameLibrary.Achivements.AchievementManager">
+            <summary>
+            Provides a management for achivements.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Achivements.AchievementManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rewtek.GameLibrary.Achivements.AchievementManager"/> class.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Achivements.AchievementManager.Add(Rewtek.GameLibrary.Achivements.Achievement)">
+            <summary>
+            Adds an <see cref="T:Rewtek.GameLibrary.Achivements.Achievement"/>.
+            </summary>
+            <param name="achievement">The <see cref="T:Rewtek.GameLibrary.Achivements.Achievement"/> to be added.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Achivements.AchievementManager.Remove(Rewtek.GameLibrary.Achivements.Achievement)">
+            <summary>
+            Removes an <see cref="T:Rewtek.GameLibrary.Achivements.Achievement"/>.
+            </summary>
+            <param name="achievement">The <see cref="T:Rewtek.GameLibrary.Achivements.Achievement"/> to be removed.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Achivements.AchievementManager.Contains(Rewtek.GameLibrary.Achivements.Achievement)">
+            <summary>
+            Determines whether an <see cref="T:Rewtek.GameLibrary.Achivements.Achievement"/> is registered.
+            </summary>
+            <param name="achievement">The <see cref="T:Rewtek.GameLibrary.Achivements.Achievement"/> to locate.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Achivements.AchievementManager.Contains(System.String)">
+            <summary>
+            Determines whether an <see cref="T:Rewtek.GameLibrary.Achivements.Achievement"/> with the specified name is registered.
+            </summary>
+            <param name="achievement">The <see cref="T:Rewtek.GameLibrary.Achivements.Achievement"/> to locate.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Achivements.AchievementManager.Unlock(System.String)">
+            <summary>
+            Unlocks an <see cref="T:Rewtek.GameLibrary.Achivements.Achievement"/>.
+            </summary>
+            <param name="achievement">The name of the <see cref="T:Rewtek.GameLibrary.Achivements.Achievement"/> to unlock.</param>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Achivements.AchievementManager.AchivementNum">
+            <summary>
+            Gets the number of <see cref="T:Rewtek.GameLibrary.Achivements.Achievement"/>s actually registered.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Achivements.AchievementManager.AchivementUnlokedNum">
+            <summary>
+            Gets the number of unlocked <see cref="T:Rewtek.GameLibrary.Achivements.Achievement"/>s actually registered.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Achivements.AchievementManager.AchivementNotUnlokedNum">
+            <summary>
+            Gets the number of not unlocked <see cref="T:Rewtek.GameLibrary.Achivements.Achievement"/>s actually registered.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Achivements.AchievementManager.Item(System.String)">
+            <summary>
+            Gets the <see cref="T:Rewtek.GameLibrary.Achivements.Achievement"/> at the specific index.
+            </summary>
+            <param name="achievement">The name of the <see cref="T:Rewtek.GameLibrary.Achivements.Achievement"/>.</param>
+            <returns>The <see cref="T:Rewtek.GameLibrary.Achivements.Achievement"/> at the specific index.</returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Rectangle.#ctor(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rewtek.GameLibrary.Math.Rectangle"/> struct.
+            </summary>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+            <param name="width">The width.</param>
+            <param name="height">The height.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Rectangle.#ctor(Rewtek.GameLibrary.Math.Vector2,Rewtek.GameLibrary.Math.Vector2)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rewtek.GameLibrary.Math.Rectangle"/> struct.
+            </summary>
+            <param name="a">The first vector.</param>
+            <param name="b">The second vector.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Rectangle.Expand(System.Single,System.Single)">
+            <summary>
+            Expands the rectangle by pushing all 4 directions by the according axis-orientated x and y values.
+            </summary>
+            <param name="x">The x value.</param>
+            <param name="y">The y value.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Rectangle.Contains(Rewtek.GameLibrary.Math.Rectangle)">
+            <summary>
+            Determines whether this instance contains the specified rectangle.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Rectangle.Contains(Rewtek.GameLibrary.Math.Vector2)">
+            <summary>
+            Determines whether this instance contains the specified vector.
+            </summary>
+            <param name="vector">The vector.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Rectangle.Intersects(Rewtek.GameLibrary.Math.Rectangle)">
+            <summary>
+            Intersectses the specified rectangle.
+            </summary>
+            <param name="rectangle">The rectangle.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Rectangle.Intersect(Rewtek.GameLibrary.Math.Rectangle)">
+            <summary>
+            Intersects the specified rectangle.
+            </summary>
+            <param name="rectangle">The rectangle.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Rectangle.op_Addition(Rewtek.GameLibrary.Math.Rectangle,Rewtek.GameLibrary.Math.Vector2)">
+            <summary>
+            Implements the operator +.
+            </summary>
+            <param name="rectangle">The rectangle.</param>
+            <param name="vector">The vector.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Rectangle.op_Subtraction(Rewtek.GameLibrary.Math.Rectangle,Rewtek.GameLibrary.Math.Vector2)">
+            <summary>
+            Implements the operator -.
+            </summary>
+            <param name="rectangle">The rectangle.</param>
+            <param name="vector">The vector.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Rectangle.op_Multiply(Rewtek.GameLibrary.Math.Rectangle,Rewtek.GameLibrary.Math.Vector2)">
+            <summary>
+            Implements the operator *.
+            </summary>
+            <param name="rectangle">The rectangle.</param>
+            <param name="vector">The vector.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Rectangle.op_Multiply(Rewtek.GameLibrary.Math.Rectangle,System.Single)">
+            <summary>
+            Implements the operator *.
+            </summary>
+            <param name="rectangle">The rectangle.</param>
+            <param name="scale">The scale.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Rectangle.op_Division(Rewtek.GameLibrary.Math.Rectangle,Rewtek.GameLibrary.Math.Vector2)">
+            <summary>
+            Implements the operator /.
+            </summary>
+            <param name="rectangle">The rectangle.</param>
+            <param name="vector">The vector.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Rectangle.op_Division(Rewtek.GameLibrary.Math.Rectangle,System.Single)">
+            <summary>
+            Implements the operator /.
+            </summary>
+            <param name="rectangle">The rectangle.</param>
+            <param name="scale">The scale.</param>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Math.Rectangle.X">
+            <summary>
+            Gets or sets the X-coordinate.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Math.Rectangle.Y">
+            <summary>
+            Gets or sets the Y-coordinate.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Math.Rectangle.Width">
+            <summary>
+            Gets or sets the width.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Math.Rectangle.Height">
+            <summary>
+            Gets or sets the height.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Math.Rectangle.Left">
+            <summary>
+            Gets the left.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Math.Rectangle.Right">
+            <summary>
+            Gets the right.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Math.Rectangle.Top">
+            <summary>
+            Gets the top.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Math.Rectangle.Bottom">
+            <summary>
+            Gets the bottom.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Math.Rectangle.Location">
+            <summary>
+            Gets the location.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Math.Rectangle.Center">
+            <summary>
+            Gets the center.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Math.Rectangle.Corners">
+            <summary>
+            Gets the edges.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Math.Rectangle.Empty">
+            <summary>
+            Gets an empty rectangle instance.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Environment.Missions.ObjectiveChangedEventArgs.#ctor(Rewtek.GameLibrary.Environment.Missions.Objective)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rewtek.GameLibrary.Environment.Missions.ObjectiveChangedEventArgs"/> class.
+            </summary>
+            <param name="objective">The objective.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Components.TestComponent.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rewtek.GameLibrary.Components.TestComponent"/> class.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Components.TestComponent.Dispose">
+            <summary>
+            Disposes the object.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Components.TestComponent.Dispose(System.Boolean)">
+            <summary>
+            Disposes the object.
+            <param name="disposing"></param>
+            </summary>
+        </member>
+        <member name="T:Rewtek.GameLibrary.Achivements.Achievement">
+            <summary>
+            Provides an achivement.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Achivements.Achievement.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rewtek.GameLibrary.Achivements.Achievement"/> class.
+            <param name="name">The name of the <see cref="T:Rewtek.GameLibrary.Achivements.Achievement"/>.</param>
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Achivements.Achievement.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Achivements.Achievement.Unlocked">
+            <summary>
+            Gets or sets a value indicating whether the <see cref="!:Rewtek.GameLibrary.Achivements.Achivement"/> has been unlocked.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Testing.Test.Run">
+            <summary>
+            Runs the test.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Testing.Test.Execute">
+            <summary>
+            Executes the test.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Testing.Test.Close">
+            <summary>
+            Closes the test.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Testing.Test.Dispose">
+            <summary>
+            Disposes the test.
+            </summary>
+        </member>
+        <member name="T:MsgBox">
+            <summary>
+            Displays a message box that can contain text, buttons, and symbols that inform
+            and instruct the user.
+            </summary>
+        </member>
+        <member name="M:MsgBox.Show(System.String)">
+            <summary>
+            Displays a message box with specified text.
+            </summary>
+            <param name="text">The text to display in the message box.</param>
+        </member>
+        <member name="M:MsgBox.Show(System.Object)">
+            <summary>
+            Displays a message box with specified value.
+            </summary>
+            <param name="value">The value to be display as text in the message box.</param>
+        </member>
+        <member name="M:MsgBox.Show(System.String,System.String)">
+            <summary>
+             Displays a message box with specified text.
+            </summary>
+            <param name="caption">The text to display in the title bar of the message box.</param>
+            <param name="text">The text to display in the message box.</param>
+        </member>
+        <member name="M:MsgBox.Show(System.String,System.String,System.Object[])">
+            <summary>
+             Displays a message box with specified text.
+            </summary>
+            <param name="caption">The text to display in the title bar of the message box.</param>
+            <param name="format">The formated text to display in the message box.</param>
+            <param name="args">An array of objects to display using format.</param>
+        </member>
+        <member name="M:MsgBox.Show(MsgBoxIcon,System.String)">
+            <summary>
+            Displays a message box with specified text.
+            </summary>
+            <param name="icon">One of the MessageBoxIcon values that specifies which
+            icon to display in the message box.</param>
+            <param name="text">The text to display in the title bar of the message box.</param>
+        </member>
+        <member name="M:MsgBox.Show(MsgBoxIcon,System.String,System.String)">
+            <summary>
+            Displays a message box with specified text.
+            </summary>
+            <param name="icon">One of the MessageBoxIcon values that specifies which
+            icon to display in the message box.</param>
+            <param name="caption">The text to display in the title bar of the message box.</param>
+            <param name="text">The text to display in the title bar of the message box.</param>
+        </member>
+        <member name="M:MsgBox.Show(MsgBoxIcon,System.String,System.String,System.Object[])">
+            <summary>
+            Displays a message box with specified text.
+            </summary>
+            <param name="icon">One of the MessageBoxIcon values that specifies which
+            icon to display in the message box.</param>
+            <param name="caption">The text to display in the title bar of the message box.</param>
+            <param name="format">The formated text to display in the message box.</param>
+            <param name="args">An array of objects to display using format.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Common.Alphabet.IndexOf(System.Char)">
+            <summary>
+            Returns the index of a letter in the alphabet.
+            </summary>
+            <param name="c">The letter.</param>
+            <returns>The index of the letter.</returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Common.Alphabet.LetterAt(System.Int32)">
+            <summary>
+            Returns the letter at the index in the alphabet.
+            </summary>
+            <param name="index">The index.</param>
+            <returns>The letter at the index.</returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Common.Alphabet.LetterAt(System.Object)">
+            <summary>
+            Returns the letter at the index in the alphabet.
+            </summary>
+            <param name="index">The index.</param>
+            <returns>The letter at the index.</returns>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Common.Alphabet.Letters">
+            <summary>
+            Gets all letters of the alphabet.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.Packet.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rewtek.GameLibrary.Network.Packet"/> class.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.Packet.#ctor(System.Byte[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rewtek.GameLibrary.Network.Packet"/> class.
+            <param name="buffer">The packet buffer.</param>
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.Packet.Clear">
+            <summary>
+            Clears the packet.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.Packet.AddParam">
+            <summary>
+            Adds a parameter to the packet.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.Packet.AddParam(System.Object)">
+            <summary>
+            Adds a parameter to the packet.
+            </summary>
+            <param name="value">The parameter.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.Packet.GetParam">
+            <summary>
+            Returns the next parameter.
+            </summary>
+            <returns>The next parameter as <see cref="T:System.Object"/>.</returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.Packet.GetParamAs``1">
+            <summary>
+            Returns the next parameter as a specific type.
+            </summary>
+            <typeparam name="T">The specific type of the parameter.</typeparam>
+            <returns>The next parameter as T.</returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.Packet.GetParamByIndex(System.Int32)">
+            <summary>
+            Returns the next parameter at the specific index.
+            </summary>
+            <param name="index">The index of the parameter.</param>
+            <returns>The next parameter as <see cref="T:System.Object"/> at the specific index.</returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.Packet.GetParamByIndexAs``1(System.Int32)">
+            <summary>
+            Returns the next parameter as a specific type at the specific index.
+            </summary>
+            <typeparam name="T">The specific type of the parameter.</typeparam>
+            <returns>The next parameter as T at the specific index.</returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.Packet.GetBytes">
+            <summary>
+            Returns an crypted <see cref="T:System.Byte"/>-Array of the packet.
+            </summary>
+            <returns>An crypted <see cref="T:System.Byte"/>-Array of the packet.</returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.Packet.GetBytes(System.Boolean)">
+            <summary>
+            Returns an crypted <see cref="T:System.Byte"/>-Array of the packet, if encrypt is true.
+            </summary>
+            <param name="encrypt">Crypts the packet, if true.</param>
+            <returns>An crypted <see cref="T:System.Byte"/>-Array of the packet, if encrypt is true.</returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.Packet.GetString">
+            <summary>
+            Returns a <see cref="T:System.String"/> of the packet.
+            </summary>
+            <returns>A <see cref="T:System.String"/> of the packet.</returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.Packet.Decode(System.Byte[])">
+            <summary>
+            Decodes the packet with a default encryption key.
+            </summary>
+            <param name="buffer">The packet buffer.</param>
+            <returns>The decoded packet buffer.</returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.Packet.Encode(System.Byte[])">
+            <summary>
+            Encodes the packet with a default encryption key.
+            </summary>
+            <param name="buffer">The packet buffer.</param>
+            <returns>The decoded packet buffer.</returns>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Network.Packet.TimeStamp">
+            <summary>
+            Gets the timestamp of the packet.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Network.Packet.ParameterCount">
+            <summary>
+            Gets the parameter count.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Network.Packet.Header">
+            <summary>
+            Gets or sets the packet header.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.NetworkClient.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rewtek.GameLibrary.Network.NetworkClient"/> class.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.NetworkClient.#ctor(System.Net.Sockets.Socket)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rewtek.GameLibrary.Network.NetworkClient"/> class.
+            <param name="socket">The <see cref="T:System.Net.Sockets.Socket"/> to be connected with.</param>
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.NetworkClient.Connect(System.String,System.Int32)">
+            <summary>
+             Establishes a connection to a remote host. The host is specified by a host
+             name and a port number.
+            </summary>
+            <param name="host">The name of the remote host.</param>
+            <param name="port">The port number of the remote host.</param>
+            <returns>Returns true if the client is connected. Otherwise, false.</returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.NetworkClient.Listen">
+            <summary>
+            Starts listening.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.NetworkClient.Send(System.Byte[])">
+            <summary>
+            Sends the specified number of bytes of data to a connected <see cref="T:System.Net.Sockets.Socket"/>,
+            using the specified <see cref="T:System.Net.Sockets.SocketFlags"/>.
+            </summary>
+            <param name="buffer">An array of type <see cref="T:System.Byte"/> that contains the data to be sent.</param>
+            <returns>The number of bytes sent to the <see cref="T:System.Net.Sockets.Socket"/>.</returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.NetworkClient.Send(Rewtek.GameLibrary.Network.Packet)">
+            <summary>
+            Sends the specified <see cref="T:Rewtek.GameLibrary.Network.Packet"/>.
+            </summary>
+            <param name="packet">The <see cref="T:Rewtek.GameLibrary.Network.Packet"/> to send.</param>
+            <returns>The number of bytes sent to the <see cref="T:System.Net.Sockets.Socket"/>.</returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.NetworkClient.Disconnect">
+            <summary>
+            Closes the <see cref="T:System.Net.Sockets.Socket"/> connection, releases all associated resources
+            and terminates the connection.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.NetworkClient.SubscribePacketHandler(Rewtek.GameLibrary.Network.PacketHandler)">
+            <summary>
+            Subscribes a <see cref="T:Rewtek.GameLibrary.Network.PacketHandler"/>.
+            </summary>
+            <param name="packetHandler">The <see cref="T:Rewtek.GameLibrary.Network.PacketHandler"/>.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.#ctor(System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rewtek.GameLibrary.Math.Vector2"/> struct.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.#ctor(System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rewtek.GameLibrary.Math.Vector2"/> struct.
+            </summary>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.Normalize">
+            <summary>
+            Normalizes this vector.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.Translate(Rewtek.GameLibrary.Math.Vector2)">
+            <summary>
+            Translates the vector.
+            </summary>
+            <param name="translation">The translation.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.Truncate(Rewtek.GameLibrary.Math.Vector2)">
+            <summary>
+            Truncates the specified vector and removes all decimal places.
+            </summary>
+            <param name="a">The vector.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.Normalize(Rewtek.GameLibrary.Math.Vector2)">
+            <summary>
+            Normalizes the specified vector.
+            </summary>
+            <param name="a">The vector.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.Abs(Rewtek.GameLibrary.Math.Vector2)">
+            <summary>
+            Returns the absolute values of the specified vector.
+            </summary>
+            <param name="a">The vector.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.Clamp(Rewtek.GameLibrary.Math.Vector2,Rewtek.GameLibrary.Math.Vector2,Rewtek.GameLibrary.Math.Vector2)">
+            <summary>
+            Clamps the specified value.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="min">The min.</param>
+            <param name="max">The max.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.Lerp(Rewtek.GameLibrary.Math.Vector2,Rewtek.GameLibrary.Math.Vector2,System.Single)">
+            <summary>
+            Linear interpolation between the two values.
+            </summary>
+            <param name="a">The first value.</param>
+            <param name="b">The second value.</param>
+            <param name="amount">The amount.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.Rotate(Rewtek.GameLibrary.Math.Vector2,System.Single)">
+            <summary>
+            Rotates the specified vector.
+            </summary>
+            <param name="vector">The vector.</param>
+            <param name="angle">The angle.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.Round(Rewtek.GameLibrary.Math.Vector2)">
+            <summary>
+            Rounds the specified vector.
+            </summary>
+            <param name="vector">The vector.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.SmoothStep(Rewtek.GameLibrary.Math.Vector2,Rewtek.GameLibrary.Math.Vector2,System.Single)">
+            <summary>
+            Interpolates between two values using a cubic equation.
+            </summary>
+            <param name="a">The first value.</param>
+            <param name="b">The second value.</param>
+            <param name="amount">The amount.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.Min(Rewtek.GameLibrary.Math.Vector2,Rewtek.GameLibrary.Math.Vector2)">
+            <summary>
+            Returns the lesser components of the two values.
+            </summary>
+            <param name="a">The first value.</param>
+            <param name="b">The second value.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.Max(Rewtek.GameLibrary.Math.Vector2,Rewtek.GameLibrary.Math.Vector2)">
+            <summary>
+            Returns the greater components of the two values.
+            </summary>
+            <param name="a">The first value.</param>
+            <param name="b">The second value.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.Dot(Rewtek.GameLibrary.Math.Vector2,Rewtek.GameLibrary.Math.Vector2)">
+            <summary>
+            Returns the dot product for the specified vectors.
+            </summary>
+            <param name="a">The first value.</param>
+            <param name="b">The second value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.Reflect(Rewtek.GameLibrary.Math.Vector2,Rewtek.GameLibrary.Math.Vector2)">
+            <summary>
+            Reflects the specified vector.
+            </summary>
+            <param name="vector">The vector.</param>
+            <param name="normal">The normal.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.Negate(Rewtek.GameLibrary.Math.Vector2)">
+            <summary>
+            Negates the specified vector.
+            </summary>
+            <param name="vector">The vector.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.Equals(System.Object)">
+            <summary>
+            Indicates whether this instance and a specified object are equal.
+            </summary>
+            <returns>
+            true if <paramref name="obj"/> and this instance are the same type and represent the same value; otherwise, false.
+            </returns>
+            <param name="obj">Another object to compare to. </param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.GetHashCode">
+            <summary>
+            Returns the hash code for this instance.
+            </summary>
+            <returns>
+            A 32-bit signed integer that is the hash code for this instance.
+            </returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.Equals(Rewtek.GameLibrary.Math.Vector2)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.op_Equality(Rewtek.GameLibrary.Math.Vector2,Rewtek.GameLibrary.Math.Vector2)">
+            <summary>
+            Implements the operator ==.
+            </summary>
+            <param name="a">The first vector.</param>
+            <param name="b">The second vector.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.op_Inequality(Rewtek.GameLibrary.Math.Vector2,Rewtek.GameLibrary.Math.Vector2)">
+            <summary>
+            Implements the operator !=.
+            </summary>
+            <param name="a">The first vector.</param>
+            <param name="b">The second vector.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.op_Addition(Rewtek.GameLibrary.Math.Vector2,Rewtek.GameLibrary.Math.Vector2)">
+            <summary>
+            Implements the operator +.
+            </summary>
+            <param name="a">The first vector.</param>
+            <param name="b">The second vector.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.op_Subtraction(Rewtek.GameLibrary.Math.Vector2,Rewtek.GameLibrary.Math.Vector2)">
+            <summary>
+            Implements the operator -.
+            </summary>
+            <param name="a">The first vector.</param>
+            <param name="b">The second vector.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.op_UnaryNegation(Rewtek.GameLibrary.Math.Vector2)">
+            <summary>
+            Implements the operator -.
+            </summary>
+            <param name="a">The vector.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.op_Multiply(Rewtek.GameLibrary.Math.Vector2,Rewtek.GameLibrary.Math.Vector2)">
+            <summary>
+            Implements the operator *.
+            </summary>
+            <param name="a">The first vector.</param>
+            <param name="b">The second vector.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.op_Multiply(Rewtek.GameLibrary.Math.Vector2,System.Single)">
+            <summary>
+            Implements the operator *.
+            </summary>
+            <param name="a">The vector.</param>
+            <param name="scale">The scale.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.op_Division(Rewtek.GameLibrary.Math.Vector2,Rewtek.GameLibrary.Math.Vector2)">
+            <summary>
+            Implements the operator /.
+            </summary>
+            <param name="a">The first vector.</param>
+            <param name="b">The second vector.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Math.Vector2.op_Division(Rewtek.GameLibrary.Math.Vector2,System.Single)">
+            <summary>
+            Implements the operator /.
+            </summary>
+            <param name="a">The vector.</param>
+            <param name="scale">The scale.</param>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Math.Vector2.Zero">
+            <summary>
+            Returns a null vector.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Math.Vector2.UnitX">
+            <summary>
+            Returns a vector that represents the x-axis.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Math.Vector2.UnitY">
+            <summary>
+            Returns a vector that represents the y-axis.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Math.Vector2.Left">
+            <summary>
+            Returns a vector that represents the left direction.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Math.Vector2.Right">
+            <summary>
+            Returns a vector that represents the right direction.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Math.Vector2.Up">
+            <summary>
+            Returns a vector that represents the up direction.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Math.Vector2.Down">
+            <summary>
+            Returns a vector that represents the down direction.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Math.Vector2.X">
+            <summary>
+            Gets or sets the X coordinate.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Math.Vector2.Y">
+            <summary>
+            Gets or sets the Y coordinate.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Math.Vector2.Length">
+            <summary>
+            Gets the length.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Math.Vector2.LengthSquared">
+            <summary>
+            Gets the length squared.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Components.MissingComponentException.#ctor(System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rewtek.GameLibrary.Components.MissingComponentException"/> class.
+            </summary>
+            <param name="componentType">Type of the component.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Components.MissingComponentException.#ctor(System.Type,System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rewtek.GameLibrary.Components.MissingComponentException"/> class.
+            </summary>
+            <param name="sourceType">Type of the source.</param>
+            <param name="componentType">Type of the component.</param>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Components.MissingComponentException.SourceType">
+            <summary>
+            Gets the type of the source.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Components.MissingComponentException.ComponentType">
+            <summary>
+            Gets the type of the component.
+            </summary>
+        </member>
+        <member name="T:Rewtek.GameLibrary.Environment.Missions.Objective">
+            <summary>
+            Provides a class for mission objectives.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Environment.Missions.Objective.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rewtek.GameLibrary.Environment.Missions.Objective"/> class.
+            </summary>
+            <param name="name">The name.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Environment.Missions.Objective.#ctor(System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rewtek.GameLibrary.Environment.Missions.Objective"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="state">The state.</param>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Environment.Missions.Objective.Accomplished">
+            <summary>
+            Gets or sets a value indicating whether the <see cref="T:Rewtek.GameLibrary.Environment.Missions.Objective"/> has been accomplished.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Environment.Missions.Objective.Name">
+            <summary>
+            Gets the name of the <see cref="T:Rewtek.GameLibrary.Environment.Missions.Objective"/>.
+            </summary>
+        </member>
+        <member name="T:Rewtek.GameLibrary.Environment.Items.Backpack">
+            <summary>
+            Provides a class for storing items.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Environment.Items.Backpack.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rewtek.GameLibrary.Environment.Items.Backpack"/> class.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Environment.Items.Backpack.#ctor(System.Int32)">
+            <summary>
+            Initializes a new <see cref="T:Rewtek.GameLibrary.Environment.Items.Backpack"/> instance.
+            <param name="capacity">Sets the capacity of the <see cref="T:Rewtek.GameLibrary.Environment.Items.Backpack"/>.</param>
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Environment.Items.Backpack.AddItem(Rewtek.GameLibrary.Environment.Items.Item)">
+            <summary>
+            Adds an item to the <see cref="T:Rewtek.GameLibrary.Environment.Items.Backpack"/>.
+            </summary>
+            <param name="item">The item to be added.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Environment.Items.Backpack.GetItem(System.String)">
+            <summary>
+            Returns an item with the specified name.
+            </summary>
+            <param name="name">The name of the item.</param>
+            <returns>The <see cref="T:Rewtek.GameLibrary.Environment.Items.Item"/> of the specified name.</returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Environment.Items.Backpack.RemoveItem(Rewtek.GameLibrary.Environment.Items.Item)">
+            <summary>
+            Removes an item from the <see cref="T:Rewtek.GameLibrary.Environment.Items.Backpack"/>.
+            </summary>
+            <param name="item">The item to be removed.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Environment.Items.Backpack.RemoveItem(System.String)">
+            <summary>
+            Removes an item with specified name from the <see cref="T:Rewtek.GameLibrary.Environment.Items.Backpack"/>.
+            </summary>
+            <param name="name">The name of the item to be removed.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Environment.Items.Backpack.HasItem(Rewtek.GameLibrary.Environment.Items.Item)">
+            <summary>
+            Determines whether the <see cref="T:Rewtek.GameLibrary.Environment.Items.Backpack"/> contains an item.
+            </summary>
+            <param name="item">The item.</param>
+            <returns>True, if the <see cref="T:Rewtek.GameLibrary.Environment.Items.Backpack"/> contains the specified item.</returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Environment.Items.Backpack.HasItem(System.String)">
+            <summary>
+            Determines whether the <see cref="T:Rewtek.GameLibrary.Environment.Items.Backpack"/> contains an item with the specified name.
+            </summary>
+            <param name="item">The name of the item.</param>
+            <returns>True, if the <see cref="T:Rewtek.GameLibrary.Environment.Items.Backpack"/> contains the specified item.</returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Environment.Items.Backpack.Clear">
+            <summary>
+            Removes all elements from the <see cref="T:Rewtek.GameLibrary.Environment.Items.Backpack"/>.
+            </summary>
+        </member>
+        <!-- Ungültiger XML-Kommentar wurde für den Member "M:Rewtek.GameLibrary.Environment.Items.Backpack.GetEnumerator" ignoriert -->
+        <!-- Ungültiger XML-Kommentar wurde für den Member "M:Rewtek.GameLibrary.Environment.Items.Backpack.System#Collections#IEnumerable#GetEnumerator" ignoriert -->
+        <member name="P:Rewtek.GameLibrary.Environment.Items.Backpack.ItemCount">
+            <summary>
+            Gets or sets a value indicating the item count in the <see cref="T:Rewtek.GameLibrary.Environment.Items.Backpack"/>.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Environment.Items.Backpack.Capacity">
+            <summary>
+            Gets or sets a value indicating the capacity of the <see cref="T:Rewtek.GameLibrary.Environment.Items.Backpack"/>.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Environment.Items.Backpack.Item(System.Int32)">
+            <summary>
+            Gets or sets the element at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the element to get or set.</param>
+            <returns>The element at the specified index.</returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Components.ComponentManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="N:Rewtek.GameLibrary.Components"/> class.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Components.ComponentManager.Install(Rewtek.GameLibrary.Components.IComponent)">
+            <summary>
+            Adds the specified component.
+            </summary>
+            <param name="component">The component.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Components.ComponentManager.Get``1">
+            <summary>
+            Gets a component by a specified type.
+            </summary>
+            <typeparam name="T">The type of the component.</typeparam>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Components.ComponentManager.Remove(Rewtek.GameLibrary.Components.IComponent)">
+            <summary>
+            Removes the specified component.
+            </summary>
+            <param name="component">The component.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Components.ComponentManager.Remove``1">
+            <summary>
+            Removes the specified component abstraction.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Components.ComponentManager.Require``1">
+            <summary>
+            Requires the specified component.
+            </summary>
+            <typeparam name="T">The component type.</typeparam>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Components.ComponentManager.Dispose">
+            <summary>
+            Disposes the object.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Components.ComponentManager.Components">
+            <summary>
+            Gets the components.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Common.SystemHelper.IsMac">
+            <summary>
+            Gets a value indicating whether the game library is currently running on mac.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Common.SystemHelper.IsLinux">
+            <summary>
+            Gets a value indicating whether the game library is currently running on linux.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Common.SystemHelper.IsWindows">
+            <summary>
+            Gets a value indicating whether the game library is currently running on windows.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Common.SystemHelper.IsXbox">
+            <summary>
+            Gets a value indicating whether the game library is currently running on Xbox.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Common.SystemHelper.Platform">
+            <summary>
+            Gets a <see cref="T:System.PlatformID"/> enumeration value that identifies the operating system platform.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Common.SystemHelper.CultureName">
+            <summary>
+            Gets the current culture name.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Common.SystemHelper.CultureNativeName">
+            <summary>
+            Gets the current native culture name.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.NetworkServer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rewtek.GameLibrary.Network.NetworkServer"/> class.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.NetworkServer.Bind(System.String,System.Int32)">
+            <summary>
+            Associates a <see cref="T:System.Net.Sockets.Socket"/> with a local endpoint.
+            </summary>
+            <param name="hostAddr">The name of the remote host.</param>
+            <param name="port">The port number of the remote host.</param>
+            <returns>true if the <see cref="T:System.Net.Sockets.Socket"/> is bound to a local port; otherwise, false</returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Network.NetworkServer.Listen">
+            <summary>
+            Listens for incoming connections.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Network.NetworkServer.PacketHandler">
+            <summary>
+            Gets or sets the <see cref="T:Rewtek.GameLibrary.Network.PacketHandler"/>.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Network.NetworkServer.AcceptConnections">
+            <summary>
+            Gets or sets a value indicates whether the <see cref="T:System.Net.Sockets.Socket"/> 
+            accepts incoming connections.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Network.NetworkServer.IsBound">
+            <summary>
+            Gets a value indicating whether the <see cref="T:System.Net.Sockets.Socket"/> is bound.
+            </summary>
+        </member>
+        <member name="T:Rewtek.GameLibrary.Core">
+            <summary>
+            Provides the system class of the game library.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Core.#cctor">
+            <summary>
+            Initializes the system.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Core.Initialize">
+            <summary>
+            Initializes the game library.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Core.Run">
+            <summary>
+            Starts the game library with the specified configuration.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Core.Destroy">
+            <summary>
+            Destroys all resources.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Core.Initialized">
+            <summary>
+            Gets a value indicating whether the game library has been initialized.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Core.Version">
+            <summary>
+            Gets the assembly version of the game library.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Core.BuildDate">
+            <summary>
+            Gets the build date of the game library.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Core.Components">
+            <summary>
+            Gets the component manager.
+            </summary>
+        </member>
+        <member name="T:Rewtek.GameLibrary.Environment.Missions.Mission">
+            <summary>
+            Provides a class for mission management.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Environment.Missions.Mission.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rewtek.GameLibrary.Environment.Missions.Mission"/> class.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Environment.Missions.Mission.ObjectiveNum">
+            <summary>
+            Gets a value indicating the total number of all objectives.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Environment.Missions.Mission.ObjectivesAccomplishedNum">
+            <summary>
+            Gets a value indicating the total number of all accomplished objectives.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Environment.Missions.Mission.ObjectivesNotAccomplishedNum">
+            <summary>
+            Gets a value indicating the total number of all not accomplished objectives.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Environment.Missions.Mission.State">
+            <summary>
+            Gets the mission state.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Rendering.Surfaces.ISurface.Width">
+            <summary>
+            Gets the width.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Rendering.Surfaces.ISurface.Height">
+            <summary>
+            Gets the height.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Rendering.Surfaces.ISurface.Title">
+            <summary>
+            Gets or sets the title of the surface.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Rendering.Surfaces.WindowSurface.Finalize">
+            <summary>
+              Performs object finalization.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Rendering.Surfaces.WindowSurface.Dispose">
+            <summary>
+              Disposes of object resources.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Rendering.Surfaces.WindowSurface.Dispose(System.Boolean)">
+            <summary>
+              Disposes of object resources.
+            </summary>
+            <param name = "disposeManagedResources">If true, managed resources should be
+              disposed of in addition to unmanaged resources.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Rendering.Surfaces.WindowSurface.Run">
+            <summary>
+            Runs the demo.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Rendering.Surfaces.WindowSurface.LoadContent">
+            <summary>
+              In a derived class, implements logic to initialize the sample.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Rendering.Surfaces.WindowSurface.Update(Rewtek.GameLibrary.Rendering.Surfaces.DemoTime)">
+            <summary>
+              In a derived class, implements logic to update any relevant sample state.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Rendering.Surfaces.WindowSurface.Draw(Rewtek.GameLibrary.Rendering.Surfaces.DemoTime)">
+            <summary>
+              In a derived class, implements logic to render the sample.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Rendering.Surfaces.WindowSurface.BeginDraw">
+            <summary>
+              In a derived class, implements logic that should occur before all
+              other rendering.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Rendering.Surfaces.WindowSurface.EndDraw">
+            <summary>
+              In a derived class, implements logic that should occur after all
+              other rendering.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Rendering.Surfaces.WindowSurface.Exit">
+            <summary>
+              Quits the sample.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Rendering.Surfaces.WindowSurface.OnUpdate">
+            <summary>
+              Updates sample state.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Rendering.Surfaces.WindowSurface.Render">
+            <summary>
+              Renders the sample.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Rendering.Surfaces.WindowSurface.HandleMouseClick(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+              Handles a mouse click event.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Rendering.Surfaces.WindowSurface.HandleKeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+              Handles a key down event.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.KeyEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Rendering.Surfaces.WindowSurface.HandleKeyUp(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+              Handles a key up event.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.KeyEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Rendering.Surfaces.WindowSurface.Handle">
+            <summary>
+            Gets the handle.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Rendering.Surfaces.WindowSurface.Control">
+            <summary>
+            Gets the control.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Rendering.Surfaces.WindowSurface.Width">
+            <summary>
+            Gets the width.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Rendering.Surfaces.WindowSurface.Height">
+            <summary>
+            Gets the height.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Rendering.Surfaces.WindowSurface.Title">
+            <summary>
+            Gets or sets the title of the surface.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Rendering.Surfaces.WindowSurface.FrameDelta">
+            <summary>
+              Gets the number of seconds passed since the last frame.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Rendering.Surfaces.WindowSurface.FramePerSecond">
+            <summary>
+              Gets the number of seconds passed since the last frame.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Rendering.TEst.Handle">
+            <summary>
+            Gets the handle.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Rendering.TEst.Control">
+            <summary>
+            Gets the control.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Rendering.TEst.Width">
+            <summary>
+            Gets the width.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Rendering.TEst.Height">
+            <summary>
+            Gets the height.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Localization.LocalizationManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rewtek.GameLibrary.Localization.LocalizationManager"/> class.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Localization.LocalizationManager.ChangeLanguage(System.String)">
+            <summary>
+            Changes the current <see cref="T:Rewtek.GameLibrary.Localization.Language"/>.
+            </summary>
+            <param name="language">The <see cref="T:Rewtek.GameLibrary.Localization.Language"/>.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Localization.LocalizationManager.Get(System.String)">
+            <summary>
+            Returns the localized value for the specified key.
+            </summary>
+            <param name="key">The identifier key.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Localization.LocalizationManager.Get(System.String,System.Object[])">
+            <summary>
+            Returns the localized format for the specified key and appends format parameters.
+            </summary>
+            <param name="key">The identifier key.</param>
+            <param name="parameters">The parameters.</param>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Localization.LocalizationManager.LoadLanguages(System.String)">
+            <summary>
+            Adds the directory to the root directories and loads all languages inside it.
+            </summary>
+            <param name="directory">The directory.</param>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Localization.LocalizationManager.CurrentLanguage">
+            <summary>
+            Gets the current <see cref="T:Rewtek.GameLibrary.Localization.Language"/>.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Localization.LocalizationManager.Languages">
+            <summary>
+            Gets a <see cref="!:System.Collections.Generic.List"/> containing all <see cref="T:Rewtek.GameLibrary.Localization.Language"/>s.
+            </summary>
+        </member>
+        <member name="F:Rewtek.GameLibrary.Localization.Language.FILE_VERSION">
+            <summary>
+            Provides the current file version.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Localization.Language.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Rewtek.GameLibrary.Localization.Language"/> class.
+            </summary>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Localization.Language.Load(System.String)">
+            <summary>
+            Loads the <see cref="T:Rewtek.GameLibrary.Localization.Language"/> from the specified path.
+            </summary>
+            <param name="path">The path.</param>
+            <returns>A <see cref="T:Rewtek.GameLibrary.Localization.Language"/>.</returns>
+        </member>
+        <member name="M:Rewtek.GameLibrary.Localization.Language.Write(Rewtek.GameLibrary.Localization.Language,System.String)">
+            <summary>
+            Writes a <see cref="T:Rewtek.GameLibrary.Localization.Language"/> to the spcified path.
+            </summary>
+            <param name="language">The <see cref="T:Rewtek.GameLibrary.Localization.Language"/>.</param>
+            <param name="path">The path.</param>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Localization.Language.NativeName">
+            <summary>
+            Gets the native name of the language.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Localization.Language.CultureName">
+            <summary>
+            Gets or sets the name of the culture.
+            </summary>
+        </member>
+        <member name="P:Rewtek.GameLibrary.Localization.Language.Strings">
+            <summary>
+            Gets or sets the strings.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Rewtek Network")]
-[assembly: AssemblyProduct("Rewtek.TestGame")]
+[assembly: AssemblyProduct("Rewtek.Testing.Game")]
 [assembly: AssemblyCopyright("Copyright (c) 2014 Rewtek Network")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
