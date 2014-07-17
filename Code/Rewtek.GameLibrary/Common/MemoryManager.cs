@@ -50,7 +50,6 @@ namespace Rewtek.GameLibrary.Common
         /// </summary>
         public MemoryManager()
         {
-
         }
 
         // Destructor
@@ -95,7 +94,7 @@ namespace Rewtek.GameLibrary.Common
 
         private void CheckMemory()
         {
-            Logger.Log("Starting Memory Manager ...");
+            Logger.Log("MemoryManager has been started");
 
             while (true)
             {
@@ -111,12 +110,12 @@ namespace Rewtek.GameLibrary.Common
                 }
                 catch (ThreadAbortException)
                 {
-                    Logger.Log("Memory Manager stopped");
+                    Logger.Log("MemoryManager has been stopped");
                     break;
                 }
                 catch
                 {
-                    Logger.Log("Memory Manager stopped because of an unexpected error");
+                    Logger.Log("MemoryManager stopped because of an unexpected error");
                     break;
                 }
 

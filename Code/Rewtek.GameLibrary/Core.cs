@@ -31,11 +31,13 @@ namespace Rewtek.GameLibrary
     using global::System;
     using global::System.Linq;
     using global::System.Reflection;
+    using global::System.Diagnostics;
 
     using Rewtek.GameLibrary;
     using Rewtek.GameLibrary.Common;
     using Rewtek.GameLibrary.Components;
-    using System.Diagnostics;
+    using Rewtek.GameLibrary.Game;
+    using Rewtek.GameLibrary.Rendering;
 
     #endregion
 
@@ -74,7 +76,7 @@ namespace Rewtek.GameLibrary
         }
 
         /// <summary>
-        /// Gets the component manager.
+        /// Gets the <see cref="Rewtek.GameLibrary.Components.ComponentManager"/>.
         /// </summary>
         public static ComponentManager Components { get; private set; }
 
@@ -112,6 +114,7 @@ namespace Rewtek.GameLibrary
 
             // Initialize components
             Components.Install(new MemoryManager());
+            Components.Install(new GameLoop());
 
             Initialized = true;
         }
@@ -121,7 +124,15 @@ namespace Rewtek.GameLibrary
         /// </summary>
         public static void Run()
         {
+            // Initialize memory manager
             Components.Require<MemoryManager>().StartMemoryChecker();
+
+            // Initialize game loop
+            Core.Components.Require<GameLoop>().Initialize();
+            Core.Components.Require<GameLoop>().Start();
+
+            // Initialize graphics
+            //Core.Components.Require<GraphicsDevice>().Initialize();
         }
 
         /// <summary>

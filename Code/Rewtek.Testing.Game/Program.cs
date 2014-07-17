@@ -11,6 +11,8 @@
     using Rewtek.GameLibrary.Environment;
     using Rewtek.GameLibrary.Environment.Entities;
     using Rewtek.GameLibrary.Environment.Items;
+    using Rewtek.GameLibrary.Game;
+    using Rewtek.GameLibrary.Game.Scenes;
     using Rewtek.GameLibrary.Localization;
     using Rewtek.GameLibrary.Logging;
     using Rewtek.GameLibrary.Math;
@@ -51,6 +53,8 @@
             //Core.Run();
 
             Console.ReadLine();
+
+            Core.Destroy();
         }
     }
 }

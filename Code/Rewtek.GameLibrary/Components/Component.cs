@@ -63,7 +63,7 @@ namespace Rewtek.GameLibrary.Components
         #region Component Implementation
 
         /// <summary>
-        /// Initializes the component.
+        /// Initializes the <see cref="Rewtek.GameLibrary.Components.Component"/>.
         /// </summary>
         public virtual void Initialize()
         {
