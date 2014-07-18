@@ -99,6 +99,7 @@
     <Compile Include="Environment\Missions\Objective.cs" />
     <Compile Include="Environment\Missions\ObjectiveChangedEventArgs.cs" />
     <Compile Include="Core.cs" />
+    <Compile Include="Facts.cs" />
     <Compile Include="Localization\Language.cs" />
     <Compile Include="Localization\LocalizationManager.cs" />
     <Compile Include="Logging\FileLogger.cs" />
