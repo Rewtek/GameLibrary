@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rewtek.Testing.Game", "Code
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rewtek.IntegrityGen", "Code\Rewtek.IntegrityGen\Rewtek.IntegrityGen.csproj", "{2A6F8484-079E-42C3-B4D7-B3818FC1FC3F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rewtek.Testing.Network", "Code\Rewtek.Testing.Network\Rewtek.Testing.Network.csproj", "{5D47E944-D191-41BE-80F2-0FBCD2D3107F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,16 @@ Global
 		{2A6F8484-079E-42C3-B4D7-B3818FC1FC3F}.Release|Mixed Platforms.Build.0 = Release|x86
 		{2A6F8484-079E-42C3-B4D7-B3818FC1FC3F}.Release|x86.ActiveCfg = Release|x86
 		{2A6F8484-079E-42C3-B4D7-B3818FC1FC3F}.Release|x86.Build.0 = Release|x86
+		{5D47E944-D191-41BE-80F2-0FBCD2D3107F}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{5D47E944-D191-41BE-80F2-0FBCD2D3107F}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{5D47E944-D191-41BE-80F2-0FBCD2D3107F}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{5D47E944-D191-41BE-80F2-0FBCD2D3107F}.Debug|x86.ActiveCfg = Debug|x86
+		{5D47E944-D191-41BE-80F2-0FBCD2D3107F}.Debug|x86.Build.0 = Debug|x86
+		{5D47E944-D191-41BE-80F2-0FBCD2D3107F}.Release|Any CPU.ActiveCfg = Release|x86
+		{5D47E944-D191-41BE-80F2-0FBCD2D3107F}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{5D47E944-D191-41BE-80F2-0FBCD2D3107F}.Release|Mixed Platforms.Build.0 = Release|x86
+		{5D47E944-D191-41BE-80F2-0FBCD2D3107F}.Release|x86.ActiveCfg = Release|x86
+		{5D47E944-D191-41BE-80F2-0FBCD2D3107F}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,5 +79,6 @@ Global
 		{0B4AAC62-D1C3-4DEF-B1AD-4440C385044A} = {0FB2B93D-A531-41EE-A238-214A7BEBE72C}
 		{2A6F8484-079E-42C3-B4D7-B3818FC1FC3F} = {7420962D-D3E0-4028-B84A-EBE1C10F94C2}
 		{EB8731B9-9EAC-4738-88F1-A65B2C648838} = {13D7BF06-E388-49DE-9F46-340FCD0EE0A7}
+		{5D47E944-D191-41BE-80F2-0FBCD2D3107F} = {13D7BF06-E388-49DE-9F46-340FCD0EE0A7}
 	EndGlobalSection
 EndGlobal
