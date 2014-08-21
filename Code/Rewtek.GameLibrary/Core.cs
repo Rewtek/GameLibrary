@@ -32,13 +32,15 @@ namespace Rewtek.GameLibrary
     using global::System.Linq;
     using global::System.Reflection;
     using global::System.Diagnostics;
+    using global::System.Windows.Forms;
 
     using Rewtek.GameLibrary;
     using Rewtek.GameLibrary.Common;
     using Rewtek.GameLibrary.Components;
     using Rewtek.GameLibrary.Game;
     using Rewtek.GameLibrary.Rendering;
-
+    using Rewtek.GameLibrary.Rendering.Surfaces;
+    
     #endregion
 
     /// <summary>
@@ -119,20 +121,28 @@ namespace Rewtek.GameLibrary
             Initialized = true;
         }
 
+        
         /// <summary>
         /// Starts the game library with the specified configuration.
         /// </summary>
         public static void Run()
         {
             // Initialize memory manager
-            Components.Require<MemoryManager>().StartMemoryChecker();
+            //Components.Require<MemoryManager>().StartMemoryChecker();            
+
+            // Initialize window
+            Core.Components.Require<WindowSurface>().Initialize();
+            
+            // Initialize graphics
+            Core.Components.Require<GraphicsDevice>().Initialize(Core.Components.Require<WindowSurface>());
+
+            if (!Core.Components.Require<GraphicsDevice>().Initialized) return;
 
             // Initialize game loop
             Core.Components.Require<GameLoop>().Initialize();
             Core.Components.Require<GameLoop>().Start();
 
-            // Initialize graphics
-            //Core.Components.Require<GraphicsDevice>().Initialize();
+            Application.Run((Form)Core.Components.Require<WindowSurface>().Control);
         }
 
         /// <summary>

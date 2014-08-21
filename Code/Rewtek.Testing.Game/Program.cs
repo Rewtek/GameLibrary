@@ -17,9 +17,11 @@
     using Rewtek.GameLibrary.Logging;
     using Rewtek.GameLibrary.Math;
     using Rewtek.GameLibrary.Rendering;
+    using Rewtek.GameLibrary.Rendering.Surfaces;
 
     public static class Program
     {
+        [STAThread]
         static void Main(string[] args)
         {
             Console.Title = "Rewtek Test Game";
@@ -37,6 +39,8 @@
             Core.Components.Install(new RuffyComponent());
             Core.Components.Install(new AchievementManager());
             Core.Components.Install(new LocalizationManager());
+            Core.Components.Install(new WindowSurface(800, 600, "Rewtek Graphics Test"));
+            Core.Components.Install(new GraphicsDevice());
 
             // Localize and set default langauge
             Logger.Log("Identified {0} ({1}) as language", SystemHelper.CultureNativeName, SystemHelper.CultureName);
@@ -50,7 +54,7 @@
             
             manager.Unlock("ACHV_TEST");
 
-            //Core.Run();
+            Core.Run();
 
             Console.ReadLine();
 

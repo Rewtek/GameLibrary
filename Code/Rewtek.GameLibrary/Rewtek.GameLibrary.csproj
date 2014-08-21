@@ -32,32 +32,17 @@
     <DocumentationFile>..\..\Documentation\Rewtek.GameLibrary.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SharpDX">
-      <HintPath>..\..\Externals\SharpDX.dll</HintPath>
+    <Reference Include="Microsoft.DirectX, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\DirectX for Managed Code\1.0.2902.0\Microsoft.DirectX.dll</HintPath>
     </Reference>
-    <Reference Include="SharpDX.D3DCompiler">
-      <HintPath>..\..\Externals\SharpDX.D3DCompiler.dll</HintPath>
+    <Reference Include="Microsoft.DirectX.Direct3D, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\DirectX for Managed Code\1.0.2902.0\Microsoft.DirectX.Direct3D.dll</HintPath>
     </Reference>
-    <Reference Include="SharpDX.Direct2D1">
-      <HintPath>..\..\Externals\SharpDX.Direct2D1.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX.Direct3D10">
-      <HintPath>..\..\Externals\SharpDX.Direct3D10.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX.Direct3D11">
-      <HintPath>..\..\Externals\SharpDX.Direct3D11.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX.Direct3D9">
-      <HintPath>..\..\Externals\SharpDX.Direct3D9.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX.DirectInput">
-      <HintPath>..\..\Externals\SharpDX.DirectInput.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX.DirectSound">
-      <HintPath>..\..\Externals\SharpDX.DirectSound.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX.DXGI">
-      <HintPath>..\..\Externals\SharpDX.DXGI.dll</HintPath>
+    <Reference Include="Microsoft.DirectX.Direct3DX, Version=1.0.2909.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\DirectX for Managed Code\1.0.2911.0\Microsoft.DirectX.Direct3DX.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -131,9 +116,13 @@
     <Compile Include="Network\PacketHandler.cs" />
     <Compile Include="Network\Packets\EXAMPLE_PACKET.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rendering\Fonts\Font.cs" />
+    <Compile Include="Rendering\Fonts\FontStyle.cs" />
     <Compile Include="Rendering\GraphicsDevice.cs" />
     <Compile Include="Rendering\Sprites\Animation.cs" />
     <Compile Include="Rendering\Surfaces\ISurface.cs" />
+    <Compile Include="Rendering\Surfaces\WindowHelper.cs" />
+    <Compile Include="Rendering\Surfaces\WindowSurface.cs" />
     <Compile Include="Testing\Test.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -142,7 +131,6 @@
     <Folder Include="Game\Events\" />
     <Folder Include="Input\" />
     <Folder Include="Rendering\Effects\" />
-    <Folder Include="Rendering\Font\" />
     <Folder Include="Rendering\Geometry\" />
     <Folder Include="Rendering\Scenes\" />
     <Folder Include="Resources\" />

@@ -1,8 +1,6 @@
-﻿using Rewtek.GameLibrary.Components;
-
-namespace Rewtek.GameLibrary.Rendering.Surfaces
+﻿namespace Rewtek.GameLibrary.Rendering.Surfaces
 {
-    public interface ISurface : IComponent
+    public interface ISurface
     {
         /// <summary>
         /// Gets the width.
