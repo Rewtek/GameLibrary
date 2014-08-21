@@ -29,6 +29,7 @@ namespace Rewtek.GameLibrary.Common
     #region Using directives
 
     using global::System;
+    using global::System.Diagnostics;
     using global::System.Threading;
 
     #endregion
@@ -75,6 +76,14 @@ namespace Rewtek.GameLibrary.Common
             {
                 return Environment.OSVersion.Platform == PlatformID.Xbox;
             }
+        }
+        
+        /// <summary>
+        /// Gets a value indicating whether a debugger is attached.
+        /// </summary>
+        public static bool IsDebuggerAttached
+        {
+            get { return Debugger.IsAttached; }
         }
 
         /// <summary>

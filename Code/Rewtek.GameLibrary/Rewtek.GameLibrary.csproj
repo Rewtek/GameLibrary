@@ -109,6 +109,7 @@
     <Compile Include="Game\Scenes\Scene.cs" />
     <Compile Include="Game\Scenes\SceneContainer.cs" />
     <Compile Include="Game\Scenes\SceneManager.cs" />
+    <Compile Include="Facts.cs" />
     <Compile Include="Localization\Language.cs" />
     <Compile Include="Localization\LocalizationManager.cs" />
     <Compile Include="Logging\FileLogger.cs" />
