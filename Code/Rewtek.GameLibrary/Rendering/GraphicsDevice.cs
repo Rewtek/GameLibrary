@@ -1,7 +1,10 @@
 ﻿namespace Rewtek.GameLibrary.Rendering
 {
+    #region Using directives
+
     using global::System;
     using global::System.Drawing;
+    using global::System.Threading;
     using global::System.Windows.Forms;
 
     using Microsoft.DirectX;
@@ -9,24 +12,42 @@
 
     using Rewtek.GameLibrary.Components;
     using Rewtek.GameLibrary.Game;
+    using Rewtek.GameLibrary.Game.Scenes;
     using Rewtek.GameLibrary.Game.Handlers;
     using Rewtek.GameLibrary.Rendering;
     using Rewtek.GameLibrary.Rendering.Fonts;
+    using Rewtek.GameLibrary.Rendering.Geometry;
     using Rewtek.GameLibrary.Rendering.Surfaces;
 
     using Font = Rewtek.GameLibrary.Rendering.Fonts.Font;
+
+    #endregion
 
     public class GraphicsDevice : Component, IGameHandler, IRenderHandler
     {
         // Variables
         private Device _device;
+        private PresentParameters _presentParameters;
+        private VertexBuffer vb = null;
+        private VertexBuffer vertexBuffer;
 
         // Properties
         public bool Initialized { get; set; }
 
         public Device Device { get { return _device; } }
+        public GemoetryRenderer Gemoetry { get; private set; }
         public WindowSurface Window { get; private set; }
-        public IntPtr WindowHandle { get { return Window.Handle; } }
+        public IntPtr WindowHandle 
+        { 
+            get { return Window.Handle; } 
+        }
+        public Viewport Viewport 
+        {
+            get
+            {
+                return new Viewport(Device.Viewport);
+            }
+        }
 
         // Constants
         public const string ERR_D3D_INITIALIZE = "D3D Graphics Device could not be initialized.\n";
@@ -38,6 +59,8 @@
         }
 
         // Methods
+        #region Public Methods
+
         public void Initialize(WindowSurface window)
         {
             if (Initialized) return;
@@ -46,28 +69,52 @@
 
             try
             {
-                var presentParameters = new PresentParameters();
-                presentParameters.Windowed = true;
-                presentParameters.SwapEffect = SwapEffect.Discard;
-                presentParameters.BackBufferCount = 1;
-                presentParameters.BackBufferWidth = window.Width;
-                presentParameters.BackBufferHeight = window.Height;
-                presentParameters.BackBufferFormat = Format.X8R8G8B8;
-                presentParameters.DeviceWindowHandle = window.Handle;
+                _presentParameters = new PresentParameters();
+                _presentParameters.Windowed = true;
+                _presentParameters.SwapEffect = SwapEffect.Discard;
+                _presentParameters.BackBufferCount = 1;
+                _presentParameters.BackBufferWidth = window.Width;
+                _presentParameters.BackBufferHeight = window.Height;
+                _presentParameters.BackBufferFormat = Format.X8R8G8B8;
+                _presentParameters.DeviceWindowHandle = window.Handle;
 
                 _device = new Device(Manager.Adapters.Default.Adapter,
                     DeviceType.Hardware,
                     Window.Handle,
                     CreateFlags.HardwareVertexProcessing,
-                    presentParameters);
+                    _presentParameters);
+
+                //_device.RenderState.AlphaBlendEnable = true;
+                //_device.RenderState.IndexedVertexBlendEnable = true;
+                //_device.RenderState.AlphaSourceBlend = Blend.SourceAlpha;
+                //_device.RenderState.SourceBlend = Blend.SourceAlpha;
+                //_device.RenderState.AlphaFunction = Compare.Always;
+                //_device.RenderState.DestinationBlend = Blend.SourceAlpha;
+                //_device.RenderState.AlphaFunction = BlendFunction.Add;
+
+                _device.RenderState.AlphaBlendEnable = true;
+                _device.RenderState.AlphaTestEnable = true;
+                _device.RenderState.SourceBlend = Blend.SourceAlpha;
+                _device.RenderState.DestinationBlend = Blend.InvSourceAlpha;
+                _device.RenderState.BlendOperation = BlendOperation.Add;
+                _device.RenderState.AlphaSourceBlend = Blend.Zero;
+                _device.RenderState.AlphaDestinationBlend = Blend.Zero;
+                _device.RenderState.AlphaBlendOperation = BlendOperation.Add;
+
+                _device.RenderState.AlphaFunction = Compare.Always;
+                _device.RenderState.VertexBlend = VertexBlend.ZeroWeights;
+
                 _device.SetRenderState(RenderStates.ZEnable, false);
                 _device.SetRenderState(RenderStates.Lighting, false);
                 _device.VertexFormat = CustomVertex.TransformedColored.Format;
 
-                _device.DeviceReset += new EventHandler(OnCreateDevice);
+                _device.DeviceLost += new EventHandler(OnDeviceLost);
+                _device.DeviceReset += new EventHandler(OnResetDevice);
+                
+                Gemoetry = new GemoetryRenderer(this);
 
                 Core.Components.Require<GameLoop>().Subscribe(this);
-
+                
                 Initialized = true;
             }
             catch (Direct3DXException ex)
@@ -87,17 +134,86 @@
             }
         }
 
-        public void OnCreateDevice(object sender, EventArgs e)
+        public void Render()
         {
-            Device dev = (Device)sender;
+            if (_device == null || Window == null || Window.Handle == null) return;
+
+            try
+            {
+                _device.Clear(ClearFlags.Target, Color.CornflowerBlue, 0.0f, 0);
+                _device.BeginScene();
+
+                Core.Components.Require<SceneManager>().Render();
+
+                _device.EndScene();
+                _device.Present();
+            }
+            catch (DirectXException ex)
+            {
+                MsgBox.Show(MsgBoxIcon.Error, Reflector.GetCaller(), "D3D Render Error: {0} (0x{1:X})", ex.ErrorString, ex.ErrorCode);
+                MsgBox.Show(MsgBoxIcon.Error, "", ex.StackTrace);
+            }
+            catch (ThreadAbortException)
+            {
+                // DO NOTHING HERE
+            }
+            catch (Exception ex)
+            {
+                MsgBox.Show(MsgBoxIcon.Error, Reflector.GetCaller(), "D3D Render Error: {0}", ex.Message);
+            }
+
+            Application.DoEvents();
+        }
+
+        public void Shutdown()
+        {
+            if (_device.Disposed) return;
+
+            Core.Components.Require<GameLoop>().Unsubscribe(this);
+            Core.Components.Require<GameLoop>().Stop();
+
+            _device.Dispose();
+        }
+
+        #endregion
+
+        #region Event Handler
+
+        public void OnDeviceLost(object sender, EventArgs e)
+        {
+            Font.Default.Dispose();
+
+            while (Device.CheckCooperativeLevel())
+            {
+                Thread.Sleep(50);
+            }
+
+            try
+            {
+                Device.Reset(_presentParameters);
+            }
+            catch
+            {
+                
+            }
+        }
+
+        public void OnResetDevice(object sender, EventArgs e)
+        {
+            // reset font
+            Font.CreateDefaultFont();
 
             // Now create the vertex buffer
-            vertexBuffer = new VertexBuffer(
-                typeof(CustomVertex.TransformedColored), 3, dev, 0,
-                CustomVertex.TransformedColored.Format, Pool.Default);
-            vertexBuffer.Created +=
-                new System.EventHandler(this.OnCreateVertexBuffer);
-            this.OnCreateVertexBuffer(vb, null);
+            //vertexBuffer = new VertexBuffer(
+            //    typeof(CustomVertex.TransformedColored), 3, dev, 0,
+            //    CustomVertex.TransformedColored.Format, Pool.Default);
+            //vertexBuffer.Created +=
+            //    new System.EventHandler(this.OnCreateVertexBuffer);
+            //this.OnCreateVertexBuffer(vb, null);
+
+            // register our event handlers for lost devices
+            _device.DeviceLost += new EventHandler(OnDeviceLost);
+            _device.DeviceReset += new EventHandler(OnResetDevice);
         }
 
         public void OnCreateVertexBuffer(object sender, EventArgs e)
@@ -121,58 +237,6 @@
             vb.Unlock();
         }
 
-        VertexBuffer vb = null;
-        VertexBuffer vertexBuffer;
-        public void Render()
-        {
-            if (_device == null || Window == null || Window.Handle == null) return;
-
-            try
-            {
-                _device.Clear(ClearFlags.Target, Color.CornflowerBlue, 0.0f, 0);
-                _device.BeginScene();
-                
-                // New for Tutorial 2
-                //_device.VertexFormat = CustomVertex.TransformedColored.Format;
-
-                var vertex = new CustomVertex.TransformedColored[4];
-                var x = 100;
-                var y = 100;
-                var width = 200;
-                var height = 100;
-                var color = Color.Gray.ToArgb();
-
-                vertex[0].Position = new Vector4(x, y, 0f, 0f);
-                vertex[0].Color = color;
-                vertex[1].Position = new Vector4(x + width, y, 0f, 0f);
-                vertex[1].Color = color;
-                vertex[2].Position = new Vector4(x, y + height, 0f, 0f);
-                vertex[2].Color = color;
-                vertex[3].Position = new Vector4(x + width, y + height, 0f, 0f);
-                vertex[3].Color = color;
-
-                _device.DrawUserPrimitives(PrimitiveType.TriangleStrip, 2, vertex);
-
-                //Core.Components.Require<SceneManager>().Render();
-
-                Font.Default.Draw("Test Sequence (테스트) ᕙ(-.-)ᕗ", 10, 10);
-                Font.Default.Draw("Frame: " + Core.Components.Require<GameLoop>().FrameIndex, 10, 30);
-                Font.Default.Draw("Frame-Rate: " + Core.Components.Require<GameLoop>().FramesPerSecond, 10, 50);
-
-                _device.EndScene();
-                _device.Present();
-            }
-            catch (Exception ex)
-            {
-                MsgBox.Show(MsgBoxIcon.Error, "Render", ex.Message);
-            }
-
-            Application.DoEvents();
-        }
-
-        public void Shutdown()
-        {
-            _device.Dispose();
-        }
+        #endregion
     }
 }

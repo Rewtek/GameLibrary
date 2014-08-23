@@ -13,11 +13,14 @@
     using Rewtek.GameLibrary.Environment.Items;
     using Rewtek.GameLibrary.Game;
     using Rewtek.GameLibrary.Game.Scenes;
+    using Rewtek.GameLibrary.Input;
     using Rewtek.GameLibrary.Localization;
     using Rewtek.GameLibrary.Logging;
     using Rewtek.GameLibrary.Math;
     using Rewtek.GameLibrary.Rendering;
     using Rewtek.GameLibrary.Rendering.Surfaces;
+
+    using Rewtek.Testing.Game.Scenes;
 
     public static class Program
     {
@@ -40,7 +43,9 @@
             Core.Components.Install(new AchievementManager());
             Core.Components.Install(new LocalizationManager());
             Core.Components.Install(new WindowSurface(800, 600, "Rewtek Graphics Test"));
+            Core.Components.Install(new SceneManager());
             Core.Components.Install(new GraphicsDevice());
+            Core.Components.Install(new Mouse());
 
             // Localize and set default langauge
             Logger.Log("Identified {0} ({1}) as language", SystemHelper.CultureNativeName, SystemHelper.CultureName);
@@ -54,10 +59,11 @@
             
             manager.Unlock("ACHV_TEST");
 
+            // Initialize scene manager
+            Core.Components.Require<SceneManager>().Initialize();
+            Core.Components.Require<SceneManager>().Add(new TestScene());
+
             Core.Run();
-
-            Console.ReadLine();
-
             Core.Destroy();
         }
     }

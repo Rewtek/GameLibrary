@@ -40,6 +40,8 @@ namespace Rewtek.GameLibrary
     using Rewtek.GameLibrary.Game;
     using Rewtek.GameLibrary.Rendering;
     using Rewtek.GameLibrary.Rendering.Surfaces;
+    using Rewtek.GameLibrary.Game.Scenes;
+    using Rewtek.GameLibrary.Input;
     
     #endregion
 
@@ -50,19 +52,19 @@ namespace Rewtek.GameLibrary
     {
         // Properties
         /// <summary>
-        /// Gets a value indicating whether the game library has been initialized.
+        /// Gets a value indicating whether the library has been initialized.
         /// </summary>
         public static bool Initialized { get; private set; }
 
         /// <summary>
-        /// Gets the assembly version of the game library.
+        /// Gets the assembly version of the library.
         /// </summary>
         public static string Version 
         { 
             get { return Assembly.GetExecutingAssembly().GetName().Version.ToString(); } 
         }
         /// <summary>
-        /// Gets the build date of the game library.
+        /// Gets the build date of the library.
         /// </summary>
         public static string BuildDate 
         {
@@ -128,10 +130,11 @@ namespace Rewtek.GameLibrary
         public static void Run()
         {
             // Initialize memory manager
-            //Components.Require<MemoryManager>().StartMemoryChecker();            
+            //Core.Components.Require<MemoryManager>().StartMemoryChecker();            
 
             // Initialize window
             Core.Components.Require<WindowSurface>().Initialize();
+            Core.Components.Require<Mouse>().Initialize();
             
             // Initialize graphics
             Core.Components.Require<GraphicsDevice>().Initialize(Core.Components.Require<WindowSurface>());
@@ -141,6 +144,7 @@ namespace Rewtek.GameLibrary
             // Initialize game loop
             Core.Components.Require<GameLoop>().Initialize();
             Core.Components.Require<GameLoop>().Start();
+            Core.Components.Require<GameLoop>().Subscribe(Core.Components.Require<SceneManager>());
 
             Application.Run((Form)Core.Components.Require<WindowSurface>().Control);
         }
@@ -150,6 +154,11 @@ namespace Rewtek.GameLibrary
         /// </summary>
         public static void Destroy()
         {
+            Core.Components.Require<GameLoop>().Unsubscribe(Core.Components.Require<SceneManager>());
+            Core.Components.Require<GameLoop>().Stop();
+
+            Logger.Log("Destroying ...");
+
             Components.Dispose();
         }
 

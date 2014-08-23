@@ -15,11 +15,11 @@
         /// <summary>
         /// Gets a value indicating whether this <see cref="Rewtek.GameLibrary.Game.Scenes.Scene"/> is loaded.
         /// </summary>
-        public bool IsLoaded { get; private set; }
+        public bool IsLoaded { get; set; }
         /// <summary>
         /// Gets a value indicating whether this <see cref="Rewtek.GameLibrary.Game.Scenes.Scene"/> is loading.
         /// </summary>
-        public bool IsLoading { get; private set; }
+        public bool IsLoading { get; set; }
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="Rewtek.GameLibrary.Game.Scenes.Scene"/> is visible.
         /// </summary>
@@ -113,13 +113,24 @@
             }
         }
 
-        ///// <summary>
-        ///// Loads the content including textures, brushes, fonts, pens etc.
-        ///// </summary>
-        ///// <param name="loader">The content loader.</param>
-        //public virtual void LoadContent(IContentLoader loader)
-        //{
-        //}
+        /// <summary>
+        /// Loads the content if needed.
+        /// </summary>
+        public void LoadContentIfNeeded()
+        {
+            if (IsLoaded || IsLoading) return;
+
+            LoadContent();
+        }
+
+        /// <summary>
+        /// Loads the content including textures, brushes, fonts, pens etc.
+        /// </summary>
+        /// <param name="loader">The content loader.</param>
+        public virtual void LoadContent()
+        {
+            IsLoaded = true;
+        }
 
         /// <summary>
         /// Called when the <see cref="Rewtek.GameLibrary.Game.Scenes.Scene"/> was added to a parent.

@@ -16,10 +16,17 @@
         private readonly List<IGameHandler> _handlers;
         private readonly Thread _thread;
         private Stopwatch _gameTime;
+
         private double _renderTime;
         private double _tickTime;
         private int _fpsCount;
         private double _lastFpsUpdate;
+
+        private int _lastTick;
+        private int _lastFrameRate;
+        private int _frameRate;
+
+        private float _lastElapsed;
 
         // Properties
         /// <summary>
@@ -33,28 +40,28 @@
         /// <summary>
         /// Gets the frames per second.
         /// </summary>
-        public int FramesPerSecond { get; private set; }
+        public int FramesPerSecond { get { return _lastFrameRate; } }
 
         /// <summary>
         /// Gets the frame time (render time + tick time).
         /// </summary>
         public double FrameTime
         {
-            get { return this._tickTime + this._renderTime; }
+            get { return _tickTime + _renderTime; }
         }
         /// <summary>
         /// Gets the tick time.
         /// </summary>
         public double TickTime
         {
-            get { return this._tickTime; }
+            get { return _tickTime; }
         }
         /// <summary>
         /// Gets the render time.
         /// </summary>
         public double RenderTime
         {
-            get { return this._renderTime; }
+            get { return _renderTime; }
         }
 
         /// <summary>
@@ -106,7 +113,7 @@
             _thread = new Thread(InternalLoop)
             {
                 IsBackground = true,
-                Name = "<Hatwell::GameLoop>"
+                Name = "<Rewtek::GameLoop>"
             };
         }
 
@@ -175,16 +182,23 @@
                     //To compensate the incorrectness we introduced our SpinWaitTolerance constant.
                     //SpinWait.SpinUntil(IsTickRequested);
 
-                    //CheckRenderRequest();
-                    UpdateFramesPerSecond();
+                    _gameTime.Start();
 
-                    //HandleRenderRequest();
-                    //HandleUnprocessedTicks();
+                    CalculateFrameRate();
 
-                    OnTick(0);
+                    OnTick(_lastElapsed);
                     OnRender(0);
+
+                    _gameTime.Stop();
+                    _lastElapsed = _gameTime.ElapsedMilliseconds;
+                    _gameTime.Reset();
+
                     Thread.Sleep(1);
                 }
+            }
+            catch (ThreadAbortException)
+            {
+                // DO NOTHING HERE
             }
             catch (Exception ex)
             {
@@ -206,16 +220,16 @@
         /// <summary>
         /// Updates the timing properties for FramesPerSecond.
         /// </summary>
-        private void UpdateFramesPerSecond()
+        private int CalculateFrameRate()
         {
-            if (IsElapsed(_lastFpsUpdate, 1000.0))
+            if (Environment.TickCount - _lastTick >= 1000)
             {
-                FramesPerSecond = _fpsCount;
-
-                _lastFpsUpdate = _gameTime.Elapsed.TotalMilliseconds;
-                _fpsCount = 0;
+                _lastFrameRate = _frameRate;
+                _frameRate = 0;
+                _lastTick = Environment.TickCount;
             }
-            FramesPerSecond = (int)FrameIndex;
+            _frameRate++;
+            return _lastFrameRate;
         }
 
         /// <summary>

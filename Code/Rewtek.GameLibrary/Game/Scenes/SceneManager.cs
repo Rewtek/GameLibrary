@@ -5,8 +5,9 @@
     using System.Collections.Generic;
 
     using Rewtek.GameLibrary.Components;
+    using Rewtek.GameLibrary.Game.Handlers;
 
-    public class SceneManager : SceneContainer
+    public class SceneManager : SceneContainer, ITickHandler
     {
         // Properties
         /// <summary>

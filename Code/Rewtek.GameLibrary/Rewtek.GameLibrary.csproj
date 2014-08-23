@@ -95,6 +95,8 @@
     <Compile Include="Game\Scenes\SceneContainer.cs" />
     <Compile Include="Game\Scenes\SceneManager.cs" />
     <Compile Include="Facts.cs" />
+    <Compile Include="Input\Mouse.cs" />
+    <Compile Include="Input\MouseButton.cs" />
     <Compile Include="Localization\Language.cs" />
     <Compile Include="Localization\LocalizationManager.cs" />
     <Compile Include="Logging\FileLogger.cs" />
@@ -118,25 +120,37 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rendering\Fonts\Font.cs" />
     <Compile Include="Rendering\Fonts\FontStyle.cs" />
+    <Compile Include="Rendering\Geometry\GemoetryRenderer.cs" />
     <Compile Include="Rendering\GraphicsDevice.cs" />
+    <Compile Include="Rendering\IDrawable.cs" />
     <Compile Include="Rendering\Sprites\Animation.cs" />
     <Compile Include="Rendering\Surfaces\ISurface.cs" />
     <Compile Include="Rendering\Surfaces\WindowHelper.cs" />
     <Compile Include="Rendering\Surfaces\WindowSurface.cs" />
+    <Compile Include="Rendering\Viewport.cs" />
     <Compile Include="Testing\Test.cs" />
+    <Compile Include="UI\Events\MouseEventArgs.cs" />
+    <Compile Include="UI\Widget.cs" />
+    <Compile Include="UI\WidgetComponent.cs" />
+    <Compile Include="UI\WidgetState.cs" />
+    <Compile Include="UI\Widgets\Base\BorderStyle.cs" />
+    <Compile Include="UI\Widgets\Base\TextAlignment.cs" />
+    <Compile Include="UI\Widgets\Box.cs" />
+    <Compile Include="UI\Widgets\ContextMenu.cs" />
+    <Compile Include="UI\Widgets\Frame.cs" />
+    <Compile Include="UI\Widgets\IWidgetContainer.cs" />
+    <Compile Include="UI\Widgets\Label.cs" />
+    <Compile Include="UI\WidgetContainer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Config\" />
     <Folder Include="Content\" />
     <Folder Include="Game\Events\" />
-    <Folder Include="Input\" />
     <Folder Include="Rendering\Effects\" />
-    <Folder Include="Rendering\Geometry\" />
     <Folder Include="Rendering\Scenes\" />
     <Folder Include="Resources\" />
     <Folder Include="Scripts\" />
     <Folder Include="Serialization\" />
-    <Folder Include="UI\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

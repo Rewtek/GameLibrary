@@ -5,6 +5,7 @@
     using System.Collections.Generic;
 
     using Rewtek.GameLibrary.Components;
+    using Rewtek.GameLibrary.Input;
     using Rewtek.GameLibrary.Rendering;
 
     public abstract class SceneContainer : Component
@@ -19,8 +20,14 @@
         /// </summary>
         protected GraphicsDevice GraphicsDevice
         {
-            //get { return XGL.Components.Require<GraphicsDevice>(); }
-            get { throw new NotImplementedException(); }
+            get { return Core.Components.Require<GraphicsDevice>(); }
+        }
+        /// <summary>
+        /// Gets the <see cref="Rewtek.GameLibrary.Input.Mouse"/>.
+        /// </summary>
+        protected Mouse Mouse
+        {
+            get { return Core.Components.Require<Mouse>(); }
         }
 
         // Constructors
@@ -72,8 +79,8 @@
         /// </summary>
         private IEnumerable<Scene> OrderedTickScenes()
         {
-            return this.Scenes.Where(scene => !scene.IsPaused)
-                              .OrderBy(scene => scene.TickIndex);
+            return Scenes.Where(scene => !scene.IsPaused)
+                         .OrderBy(scene => scene.TickIndex);
         }
 
         /// <summary>
@@ -81,8 +88,8 @@
         /// </summary>
         private IEnumerable<Scene> OrderedRenderScenes()
         {
-            return this.Scenes.Where(scene => scene.IsLoaded && scene.IsVisible)
-                              .OrderBy(scene => scene.RenderIndex);
+            return Scenes.Where(scene => scene.IsLoaded && scene.IsVisible)
+                         .OrderBy(scene => scene.RenderIndex);
         }
 
         #endregion
@@ -113,16 +120,16 @@
         public virtual void Tick(float elapsed)
         {
             //using (Scenes.Protect())
-            //{
-            //    foreach (Scene scene in OrderedTickScenes())
-            //    {
-            //        scene.LoadContentIfNeeded();
-            //        if (scene.IsLoaded)
-            //        {
-            //            scene.Tick(elapsed);
-            //        }
-            //    }
-            //}
+            {
+                foreach (Scene scene in OrderedTickScenes())
+                {
+                    scene.LoadContentIfNeeded();
+                    if (scene.IsLoaded)
+                    {
+                        scene.Tick(elapsed);
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -131,12 +138,12 @@
         public virtual void Render()
         {
             //using (Scenes.Protect())
-            //{
-            //    foreach (Scene scene in OrderedRenderScenes())
-            //    {
-            //        scene.Render();
-            //    }
-            //}
+            {
+                foreach (Scene scene in OrderedRenderScenes())
+                {
+                    scene.Render();
+                }
+            }
         }
 
         #endregion
